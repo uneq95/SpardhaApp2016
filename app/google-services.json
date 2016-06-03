@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1089751558090",
+    "firebase_url": "https://project-1741942615496168528.firebaseio.com",
+    "project_id": "project-1741942615496168528",
+    "storage_bucket": "project-1741942615496168528.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089751558090:android:a3525ab5ac476cfa",
+        "android_client_info": {
+          "package_name": "com.spardha.ritesh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089751558090-hh4ieo8l6urmqkf86t5vdbi49gvo2tgj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spardha.ritesh",
+            "certificate_hash": "39CF1EEDE6016BF595A7DBCD84A7DBFDD2336D7B"
+          }
+        },
+        {
+          "client_id": "1089751558090-pc9kah8j4tgjrv79rcsbqsaakej3ejcs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxLVFLF8FAenLAkg5NFCpxyd27xuIBXdM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089751558090-pc9kah8j4tgjrv79rcsbqsaakej3ejcs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
