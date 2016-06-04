@@ -14,6 +14,7 @@ import com.spardha.ritesh.fragment.FragmentSportHallOfFame;
 import com.spardha.ritesh.fragment.FragmentSportResults;
 import com.spardha.ritesh.fragment.FragmentSportRules;
 import com.spardha.ritesh.fragment.FragmentSportUpdates;
+import com.spardha.ritesh.models.Contact;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,8 +86,14 @@ public class SportsViewPagerAdapter extends FragmentStatePagerAdapter {
 
     public void updateFragment(String w,String r){
         if (fragmentSportHallOfFame!=null){
+            //TODO crashes sometimes
             fragmentSportHallOfFame.tvWinner.setText(w);
             fragmentSportHallOfFame.tvRunnerUp.setText(r);
+        }
+    }
+    public void updateContacts(ArrayList<Contact> contacts){
+        if(fragmentSportContacts!=null){
+
         }
     }
 }

@@ -22,7 +22,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.spardha.ritesh.R;
 import com.spardha.ritesh.adapter.SportsViewPagerAdapter;
+import com.spardha.ritesh.models.Contact;
 import com.spardha.ritesh.models.Sport;
+
+import java.util.ArrayList;
 
 /**
  * Created by ritesh on 6/3/16.
@@ -129,16 +132,23 @@ public class SportsActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Sport sport = dataSnapshot.getValue(Sport.class);
                 //TODO update the contents of fragments on data retrieval
-                String url = sport.header_url;
-                //FragmentSportHallOfFame fragmentSportHallOfFame=(FragmentSportHallOfFame) sportsViewPagerAdapter.getItem(5);
+
+                DataSnapshot contactSnapshot=dataSnapshot.child("contacts");
+                Iterable<DataSnapshot> contactChildren = contactSnapshot.getChildren();
+                ArrayList<Contact> contacts = new ArrayList<>();
+                for (DataSnapshot contact:contactChildren
+                     ) {
+
+                    Contact c = contact.getValue(Contact.class);
+                    Log.d("contact:: ",c.name+" "+c.phone);
+                    contacts.add(c);
+                    //TODO use this arraylist containing contact and update it in FragmentSportContact fragment instance from the SportsViewPagerAdapter
+
+                }
+
                 System.out.println(getSupportFragmentManager().getFragments());
                 sportsViewPagerAdapter.updateFragment(sport.hall_of_fame.winner,sport.hall_of_fame.runner_up);
-                //FragmentSportHallOfFame fragmentSportHallOfFame = (FragmentSportHallOfFame) getSupportFragmentManager().findFragmentByTag(sportsViewPagerAdapter.getFragmentTag(R.id.htab_viewpager,5));
-               //FragmentSportHallOfFame fragmentSportHallOfFame=(FragmentSportHallOfFame) sportsViewPagerAdapter.getFragmentInstance();
-               //fragmentSportHallOfFame.updateViews(sport.hall_of_fame.winner,sport.hall_of_fame.runner_up);
-               // (FragmentSportHallOfFame)getSupportFragmentManager();
                 String string = String.format("header:%s\nrule:%s\nrunner up:%s\nwinner:%s", sport.header_url, sport.rules, sport.hall_of_fame.runner_up, sport.hall_of_fame.winner);
-                //Toast.makeText(SportsActivity.this, string, Toast.LENGTH_LONG).show();
                 Log.d("Data from firebase: ", string);
             }
 
