@@ -35,12 +35,22 @@ public class SportsActivity extends AppCompatActivity {
     DatabaseReference myRef;
     Sport referenceValue ;
     SportsViewPagerAdapter sportsViewPagerAdapter;
+    static boolean calledAlready = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //get the instance of firebase database
-        firebaseDatabase = FirebaseDatabase.getInstance();
+//        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+//        firebaseDatabase = FirebaseDatabase.getInstance();
+//        firebaseDatabase.setPersistenceEnabled(true);
+        if (!calledAlready)
+        {
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            calledAlready = true;
+        }
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         myRef = firebaseDatabase.getReference("cricket");
         referenceValue = new Sport();
 
