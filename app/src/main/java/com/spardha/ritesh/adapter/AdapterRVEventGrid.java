@@ -1,9 +1,7 @@
 package com.spardha.ritesh.adapter;
 
-import android.app.usage.UsageEvents;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,16 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.ImageRequest;
 import com.spardha.ritesh.R;
 import com.spardha.ritesh.activity.SportsActivity;
 import com.spardha.ritesh.models.SportEvent;
 import com.spardha.ritesh.utils.AppSingleton;
-import com.spardha.ritesh.utils.ImageLoaderHelper;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,9 +29,9 @@ public class AdapterRVEventGrid extends RecyclerView.Adapter<AdapterRVEventGrid.
 
     ArrayList<SportEvent> availableSportsList;
 
-    public AdapterRVEventGrid(Context context,ArrayList<SportEvent> availableSportsList) {
+    public AdapterRVEventGrid(Context context, ArrayList<SportEvent> availableSportsList) {
         this.context = context;
-        this.availableSportsList=availableSportsList;
+        this.availableSportsList = availableSportsList;
         requestQueue = AppSingleton.getInstance(context).getRequestQueue();
 
     }
@@ -54,28 +47,12 @@ public class AdapterRVEventGrid extends RecyclerView.Adapter<AdapterRVEventGrid.
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.tvSportName.setText(availableSportsList.get(position).sport_name.toUpperCase());
-        /*ImageLoader imageLoader =
-                AppSingleton.getInstance(context).getImageLoader();*/
+        ImageLoader imageLoader =
+                AppSingleton.getInstance(context).getImageLoader();
 
-        Picasso.with(context).load(availableSportsList.get(position).header_url).centerCrop().into(holder.ivSportIcon);
-        /*imageLoader.get(url, ImageLoader.getImageListener(imageView,
-                R.drawable.image, android.R.drawable
-                        .ic_dialog_alert));*/
-        /*ImageRequest request = new ImageRequest(availableSportsList.get(position).header_url,
-                new Response.Listener<Bitmap>() {
-                    @Override
-                    public void onResponse(Bitmap bitmap) {
-                        holder.ivSportIcon.setImageBitmap(bitmap);
-                    }
-                }, 0, 0, null,
-                new Response.ErrorListener() {
-                    public void onErrorResponse(VolleyError error) {
-                        //mImageView.setImageResource(R.drawable.image_load_error);
-                    }
-                });
-        requestQueue.add(request);*/
-//        holder.ivSportIcon.setImageBitmap(
-//                ImageLoaderHelper.decodeSampledBitmapFromResource(context.getResources(), resId[position], 150, 150));
+        imageLoader.get(availableSportsList.get(position).header_url, ImageLoader.getImageListener(holder.ivSportIcon,
+                R.drawable.header_athletics, android.R.drawable
+                        .ic_dialog_alert));
         holder.cardView.setOnClickListener(new EventOnClickListener(availableSportsList.get(position).sport_name, context));
 
     }

@@ -10,19 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.ImageView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.spardha.ritesh.R;
 import com.spardha.ritesh.adapter.AdapterViewPagerHome;
-import com.spardha.ritesh.models.SportEvent;
-
-import java.util.ArrayList;
 
 /**
  * Created by ritesh on 6/29/16.
@@ -30,10 +22,6 @@ import java.util.ArrayList;
 public class ActivityHome extends AppCompatActivity {
 
     AdapterViewPagerHome adapterViewPagerHome;
-
-    FirebaseDatabase firebaseDatabase ;
-    DatabaseReference dbRef;
-    ArrayList<SportEvent> availableSportsList;
     ViewPager viewPager;
     TabLayout tabLayout;
     static boolean calledAlready = true;
@@ -49,6 +37,7 @@ public class ActivityHome extends AppCompatActivity {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.htab_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Spardha'16");
+        getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.htab_viewpager);
@@ -59,11 +48,13 @@ public class ActivityHome extends AppCompatActivity {
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(viewPager);
+        
 
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.htab_collapse_toolbar);
         collapsingToolbarLayout.setTitleEnabled(false);
 
         ImageView header = (ImageView) findViewById(R.id.htab_header);
+        //TODO change header with respect to tab selection
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
                 R.drawable.header_cricket);
@@ -87,9 +78,4 @@ public class ActivityHome extends AppCompatActivity {
         viewPager.setAdapter(adapterViewPagerHome);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
 }
