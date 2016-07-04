@@ -1,13 +1,10 @@
 package com.spardha.ritesh.adapter;
 
-import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.spardha.ritesh.R;
 import com.spardha.ritesh.fragment.FragmentSportContacts;
 import com.spardha.ritesh.fragment.FragmentSportFixtures;
 import com.spardha.ritesh.fragment.FragmentSportHallOfFame;
@@ -17,14 +14,13 @@ import com.spardha.ritesh.fragment.FragmentSportUpdates;
 import com.spardha.ritesh.models.Contact;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by ritesh on 5/31/16.
  */
 public class SportsViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    String[] TITLES = {"UPDATES", "FIXTURES", "RESULTS", "RULES", "CONTACT", "HALL OF FAME"};
+    String[] TITLES = {"UPDATES", "FIXTURES", "RESULTS", "RULES", "CONTACTS", "HALL OF FAME"};
     FragmentSportHallOfFame fragmentSportHallOfFame;
     FragmentSportContacts fragmentSportContacts;
     FragmentSportFixtures fragmentSportFixtures;
@@ -78,21 +74,22 @@ public class SportsViewPagerAdapter extends FragmentStatePagerAdapter {
     public String getFragmentTag(int viewPagerID, int pos) {
         return "android:switcher:" + viewPagerID + ":" + pos;
     }
+
     @Override
-    public Parcelable saveState()
-    {
+    public Parcelable saveState() {
         return null;
     }
 
-    public void updateFragment(String w,String r){
-        if (fragmentSportHallOfFame!=null){
+    public void updateFragment(String w, String r) {
+        if (fragmentSportHallOfFame != null) {
             //TODO crashes sometimes
             fragmentSportHallOfFame.tvWinner.setText(w);
             fragmentSportHallOfFame.tvRunnerUp.setText(r);
         }
     }
-    public void updateContacts(ArrayList<Contact> contacts){
-        if(fragmentSportContacts!=null){
+
+    public void updateContacts(ArrayList<Contact> contacts) {
+        if (fragmentSportContacts != null) {
 
         }
     }

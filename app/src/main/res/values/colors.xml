@@ -9,4 +9,5 @@
     <!--Indigo 700-->
     <color name="primary_700">#303F9F</color>
     <!--Pink 500-->
+    <color name="white">#FFFFFF</color>
 </resources>

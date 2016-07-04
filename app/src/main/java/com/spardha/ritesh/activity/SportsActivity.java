@@ -1,5 +1,6 @@
 package com.spardha.ritesh.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -33,34 +34,23 @@ import java.util.ArrayList;
 public class SportsActivity extends AppCompatActivity {
 
 
-    private String SPORTS_NAME = "Cricket";
-    FirebaseDatabase firebaseDatabase;
+    private String SPORTS_NAME;
     DatabaseReference myRef;
-    Sport referenceValue ;
     SportsViewPagerAdapter sportsViewPagerAdapter;
-    static boolean calledAlready = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //get the instance of firebase database
-//        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-//        firebaseDatabase = FirebaseDatabase.getInstance();
-//        firebaseDatabase.setPersistenceEnabled(true);
-        if (!calledAlready)
-        {
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-            calledAlready = true;
-        }
+        Intent receivedIntent = getIntent();
+        SPORTS_NAME = receivedIntent.getStringExtra("SPORT_NAME");
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = firebaseDatabase.getReference("cricket");
-        referenceValue = new Sport();
+        myRef = firebaseDatabase.getReference(SPORTS_NAME);
 
         setContentView(R.layout.activity_sports_layout);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.htab_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(SPORTS_NAME);
+        getSupportActionBar().setTitle(SPORTS_NAME.toUpperCase());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.htab_viewpager);
@@ -133,21 +123,21 @@ public class SportsActivity extends AppCompatActivity {
                 Sport sport = dataSnapshot.getValue(Sport.class);
                 //TODO update the contents of fragments on data retrieval
 
-                DataSnapshot contactSnapshot=dataSnapshot.child("contacts");
+                DataSnapshot contactSnapshot = dataSnapshot.child("contacts");
                 Iterable<DataSnapshot> contactChildren = contactSnapshot.getChildren();
                 ArrayList<Contact> contacts = new ArrayList<>();
-                for (DataSnapshot contact:contactChildren
-                     ) {
+                for (DataSnapshot contact : contactChildren
+                        ) {
 
                     Contact c = contact.getValue(Contact.class);
-                    Log.d("contact:: ",c.name+" "+c.phone);
+                    Log.d("contact:: ", c.name + " " + c.phone);
                     contacts.add(c);
                     //TODO use this arraylist containing contact and update it in FragmentSportContact fragment instance from the SportsViewPagerAdapter
 
                 }
 
                 System.out.println(getSupportFragmentManager().getFragments());
-                sportsViewPagerAdapter.updateFragment(sport.hall_of_fame.winner,sport.hall_of_fame.runner_up);
+                sportsViewPagerAdapter.updateFragment(sport.hall_of_fame.winner, sport.hall_of_fame.runner_up);
                 String string = String.format("header:%s\nrule:%s\nrunner up:%s\nwinner:%s", sport.header_url, sport.rules, sport.hall_of_fame.runner_up, sport.hall_of_fame.winner);
                 Log.d("Data from firebase: ", string);
             }
