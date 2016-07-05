@@ -39,7 +39,6 @@ public class FragmentEventGrid extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         superView = inflater.inflate(R.layout.fragment_events_grid,container,false);
         recyclerView = (RecyclerView) superView.findViewById(R.id.rvEventGrid);
-        //availableSportsList = (ArrayList<SportEvent>) getArguments().getSerializable("EVENTS_LIST");
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),1,LinearLayoutManager.VERTICAL,false);
 
         recyclerView.setLayoutManager(gridLayoutManager);

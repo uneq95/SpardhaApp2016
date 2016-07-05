@@ -7,13 +7,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.spardha.ritesh.fragment.FragmentEventGrid;
 import com.spardha.ritesh.fragment.FragmentSportContacts;
 import com.spardha.ritesh.fragment.FragmentVideoWall;
+import com.spardha.ritesh.utils.Constants;
 
 /**
  * Created by ritesh on 6/29/16.
  */
 public class AdapterViewPagerHome extends FragmentStatePagerAdapter {
-
-    String[] TAB_TITLES = {"UPDATES", "EVENTS", "INFORMALS", "PHOTO WALL", "VIDEO WALL", "TESTIMONIALS"};
 
 
     public AdapterViewPagerHome(FragmentManager fm) {
@@ -35,12 +34,12 @@ public class AdapterViewPagerHome extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return TAB_TITLES.length;
+        return Constants.TAB_HOME_TITLES.length;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return TAB_TITLES[position];
+        return Constants.TAB_HOME_TITLES[position];
     }
 
 }

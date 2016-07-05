@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.SportsActivity"
+            android:name=".activity.ActivitySports"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity

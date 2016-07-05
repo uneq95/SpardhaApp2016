@@ -12,6 +12,7 @@ import com.spardha.ritesh.fragment.FragmentSportResults;
 import com.spardha.ritesh.fragment.FragmentSportRules;
 import com.spardha.ritesh.fragment.FragmentSportUpdates;
 import com.spardha.ritesh.models.Contact;
+import com.spardha.ritesh.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,6 @@ import java.util.ArrayList;
  */
 public class SportsViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    String[] TITLES = {"UPDATES", "FIXTURES", "RESULTS", "RULES", "CONTACTS", "HALL OF FAME"};
     FragmentSportHallOfFame fragmentSportHallOfFame;
     FragmentSportContacts fragmentSportContacts;
     FragmentSportFixtures fragmentSportFixtures;
@@ -59,7 +59,7 @@ public class SportsViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return TITLES.length;
+        return Constants.TAB_SPORTS_TITLES.length;
     }
 
     public Fragment getFragmentInstance() {
@@ -68,7 +68,7 @@ public class SportsViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return TITLES[position];
+        return Constants.TAB_SPORTS_TITLES[position];
     }
 
     public String getFragmentTag(int viewPagerID, int pos) {

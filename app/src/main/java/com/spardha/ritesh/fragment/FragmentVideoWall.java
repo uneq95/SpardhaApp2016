@@ -75,41 +75,7 @@ public class FragmentVideoWall extends Fragment {
 
             }
         });
-        final GestureDetector mGestureDetector = new GestureDetector(fragmentContext, new GestureDetector.SimpleOnGestureListener() {
 
-            @Override
-            public boolean onSingleTapUp(MotionEvent e) {
-                return true;
-            }
-
-        });
-
-        videoRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                //get the view under the tapped area
-                View child = rv.findChildViewUnder(e.getX(), e.getY());
-                //if there is recycler view child and its a touch event
-                // then we can make this work as an onclick listener for recycler view
-                if (child != null && mGestureDetector.onTouchEvent(e)) {
-
-                    int position = rv.getChildAdapterPosition(child);
-                    Toast.makeText(fragmentContext, "clicked " + position, Toast.LENGTH_LONG).show();
-                }
-
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
         return superView;
 
     }

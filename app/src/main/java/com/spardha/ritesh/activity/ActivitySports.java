@@ -31,7 +31,7 @@ import java.util.ArrayList;
 /**
  * Created by ritesh on 6/3/16.
  */
-public class SportsActivity extends AppCompatActivity {
+public class ActivitySports extends AppCompatActivity {
 
 
     private String SPORTS_NAME;
@@ -142,7 +142,7 @@ public class SportsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(SportsActivity.this, "Network error", Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivitySports.this, "Network error", Toast.LENGTH_LONG).show();
 
             }
         };

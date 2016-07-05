@@ -13,9 +13,10 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.spardha.ritesh.R;
-import com.spardha.ritesh.activity.SportsActivity;
+import com.spardha.ritesh.activity.ActivitySports;
 import com.spardha.ritesh.models.SportEvent;
 import com.spardha.ritesh.utils.AppSingleton;
+import com.spardha.ritesh.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -40,8 +41,7 @@ public class AdapterRVEventGrid extends RecyclerView.Adapter<AdapterRVEventGrid.
     public AdapterRVEventGrid.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.layout_sports_grid_item_test, parent, false);
-        ViewHolder holder = new ViewHolder(view);
-        return holder;
+        return new ViewHolder(view);
     }
 
     @Override
@@ -87,8 +87,8 @@ public class AdapterRVEventGrid extends RecyclerView.Adapter<AdapterRVEventGrid.
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(context, SportsActivity.class);
-            intent.putExtra("SPORT_NAME", sportName);
+            Intent intent = new Intent(context, ActivitySports.class);
+            intent.putExtra(Constants.EXTRA_SPORT_NAME, sportName);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         }

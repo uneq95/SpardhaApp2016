@@ -1,13 +1,17 @@
 package com.spardha.ritesh.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -15,6 +19,7 @@ import com.android.volley.toolbox.ImageRequest;
 import com.spardha.ritesh.R;
 import com.spardha.ritesh.models.YouTubeVideo;
 import com.spardha.ritesh.utils.AppSingleton;
+import com.spardha.ritesh.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -59,6 +64,7 @@ public class YoutubeAdapter extends RecyclerView.Adapter<YoutubeAdapter.ViewHold
                 });
 // Access the RequestQueue through your singleton class.
         AppSingleton.getInstance(context).addToRequestQueue(request);
+        holder.cvYoutubeVideoObject.setOnClickListener(new VideoClickListener(videoList.get(position).getVideoID()));
     }
 
     @Override
@@ -69,6 +75,7 @@ public class YoutubeAdapter extends RecyclerView.Adapter<YoutubeAdapter.ViewHold
     public static final class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvVidTitle, tvVidDescription;
         ImageView ivVidThumbnail;
+        CardView cvYoutubeVideoObject;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -76,6 +83,27 @@ public class YoutubeAdapter extends RecyclerView.Adapter<YoutubeAdapter.ViewHold
             tvVidDescription = (TextView) itemView.findViewById(R.id.tvVidDesc);
             tvVidTitle = (TextView) itemView.findViewById(R.id.tvVidTitle);
             ivVidThumbnail = (ImageView) itemView.findViewById(R.id.ivVidThumbnail);
+            cvYoutubeVideoObject = (CardView) itemView.findViewById(R.id.cvYoutubeVideoObject);
+
+        }
+    }
+
+    private class VideoClickListener implements View.OnClickListener {
+
+        String videoID;
+
+        public VideoClickListener(String videoId) {
+            this.videoID = videoId;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Log.d("VideoClickListener","item clicked : "+videoID);
+            //TODO initialize intent
+            /*Intent videoIntent;
+            videoIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            videoIntent.putExtra(Constants.EXTRA_VIDEO_ID, videoID);*/
+            //TODO start videoActivity to run the video
 
         }
     }
