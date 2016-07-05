@@ -25,12 +25,12 @@ public class ActivityHome extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     static boolean calledAlready = true;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        if (!calledAlready)
-        {
+        if (!calledAlready) {
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             calledAlready = true;
         }

@@ -3,10 +3,10 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_sport_item"
     android:layout_width="match_parent"
-    android:layout_height="256dp"
+    android:layout_height="150dp"
     android:focusable="false"
     android:clickable="true"
-    card_view:cardMaxElevation="8dp"
+    card_view:cardElevation="10dp"
     android:foreground="?android:attr/selectableItemBackground"
     card_view:cardCornerRadius="2dp"
     >

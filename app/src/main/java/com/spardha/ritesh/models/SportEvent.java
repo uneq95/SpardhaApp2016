@@ -1,7 +1,5 @@
 package com.spardha.ritesh.models;
 
-import android.os.Parcelable;
-
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.io.Serializable;
