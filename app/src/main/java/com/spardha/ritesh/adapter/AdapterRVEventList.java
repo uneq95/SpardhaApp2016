@@ -94,7 +94,7 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
             requestQueue.add(request);
         }
 
-        holder.cardView.setOnClickListener(new EventOnClickListener(availableSportsList.get(position).sport_name, context,holder.ivSportIcon));
+        holder.cardView.setOnClickListener(new EventOnClickListener(availableSportsList.get(position).sport_name, context, holder.ivSportIcon));
 
     }
 
@@ -122,10 +122,10 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
         Context context;
         View sharedView;
 
-        public EventOnClickListener(String sportName, Context context,View sharedView) {
+        public EventOnClickListener(String sportName, Context context, View sharedView) {
             this.context = context;
             this.sportName = sportName.toLowerCase();
-            this.sharedView=sharedView;
+            this.sharedView = sharedView;
         }
 
         @Override
@@ -134,11 +134,11 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
             intent.putExtra(Constants.EXTRA_SPORT_NAME, sportName);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 //sharing transition of event image to sports header
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity) context,sharedView,context.getResources().getString(R.string.event_image_transition));
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity) context, sharedView, context.getResources().getString(R.string.event_image_transition));
                 context.startActivity(intent, options.toBundle());
-            }else{
+            } else {
                 context.startActivity(intent);
             }
 
