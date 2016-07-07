@@ -1,6 +1,7 @@
 package com.spardha.ritesh.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,8 +16,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.spardha.ritesh.R;
+import com.spardha.ritesh.activity.ActivityYouTubePlayer;
 import com.spardha.ritesh.models.YouTubeVideo;
 import com.spardha.ritesh.utils.AppSingleton;
+import com.spardha.ritesh.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -61,7 +64,7 @@ public class AdapterRVYoutube extends RecyclerView.Adapter<AdapterRVYoutube.View
                 });
 // Access the RequestQueue through your singleton class.
         AppSingleton.getInstance(context).addToRequestQueue(request);
-        holder.cvYoutubeVideoObject.setOnClickListener(new VideoClickListener(videoList.get(position).getVideoID()));
+        holder.cvYoutubeVideoObject.setOnClickListener(new VideoClickListener(videoList.get(position).getVideoID(),context));
     }
 
     @Override
@@ -88,18 +91,20 @@ public class AdapterRVYoutube extends RecyclerView.Adapter<AdapterRVYoutube.View
     private class VideoClickListener implements View.OnClickListener {
 
         String videoID;
-
-        public VideoClickListener(String videoId) {
+        Context context;
+        public VideoClickListener(String videoId,Context context) {
             this.videoID = videoId;
+            this.context=context;
         }
 
         @Override
         public void onClick(View v) {
             Log.d("VideoClickListener","item clicked : "+videoID);
             //TODO initialize intent
-            /*Intent videoIntent;
+            Intent videoIntent= new Intent(context, ActivityYouTubePlayer.class);
             videoIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            videoIntent.putExtra(Constants.EXTRA_VIDEO_ID, videoID);*/
+            videoIntent.putExtra(Constants.EXTRA_VIDEO_ID, videoID);
+            context.startActivity(videoIntent);
             //TODO start videoActivity to run the video
 
         }

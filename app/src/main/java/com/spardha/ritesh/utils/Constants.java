@@ -13,7 +13,11 @@ public class Constants {
         return String.format("https://www.googleapis.com/youtube/v3/search?key=%s&channelId=%s&part=snippet,id&order=date&maxResults=50&type=video", GOOGLE_DEV_KEY, SPARDHA_YOUTUBE_CHANNEL_ID);
     }
 
-    /*Constants for Youtube Adapter*/
+    public static String getGoogleDevKey(){
+        return new String(GOOGLE_DEV_KEY);
+    }
+
+    /*Constants for Youtube Adapter and ActivityYoutubePlayer*/
     public static final String EXTRA_VIDEO_ID="YOUTUBE_VIDEO_ID";
 
     /*Constants for AdapterEventsGrid*/

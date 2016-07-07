@@ -11,4 +11,6 @@
     <!--Pink 500-->
     <color name="white">#FFFFFF</color>
     <color name="text_back_panel">#96424242</color>
+
+    <color name="translucent">#c8000000</color>
 </resources>
