@@ -136,7 +136,7 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
 
             if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
                 //sharing transition of event image to sports header
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity) context,sharedView,"robot");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity) context,sharedView,context.getResources().getString(R.string.event_image_transition));
                 context.startActivity(intent, options.toBundle());
             }else{
                 context.startActivity(intent);
