@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageRequest;
 import com.spardha.ritesh.R;
 import com.spardha.ritesh.activity.ActivitySports;
@@ -24,7 +23,6 @@ import com.spardha.ritesh.utils.AppSingleton;
 import com.spardha.ritesh.utils.Constants;
 import com.spardha.ritesh.utils.ImageSaver;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +32,7 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
 
     Context context;
     RequestQueue requestQueue;
-    private static final String TAG ="AdapterRVEventList";
+    private static final String TAG = "AdapterRVEventList";
     ArrayList<SportEvent> availableSportsList;
 
     public AdapterRVEventList(Context context, ArrayList<SportEvent> availableSportsList) {
@@ -52,29 +50,37 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.tvSportName.setText(availableSportsList.get(position).sport_name.toUpperCase());
-        /*final ImageLoader imageLoader =
-                AppSingleton.getInstance(context).getImageLoader();
 
-        imageLoader.get(availableSportsList.get(position).header_url, ImageLoader.getImageListener(holder.ivSportIcon,
-                R.drawable.header_athletics, android.R.drawable
-                        .ic_dialog_alert));*/
-        String fileName = availableSportsList.get(position).sport_name.replace(" ","_").concat(".jpg");
+        String fileName = availableSportsList.get(position).sport_name.replace(" ", "_").concat(".jpg");
         final ImageSaver imageSaver = new ImageSaver(context).setFileName(fileName);
-        boolean isLocalImageAvailable=imageSaver.doesFileExist();
-        if(isLocalImageAvailable){
-            holder.ivSportIcon.setImageBitmap(imageSaver.load());
-            Log.d(TAG,"image loaded from memory: "+position);
-            //Log.d(TAG,);
-        }else{
-            Log.d(TAG,"image loaded from Internet: "+position);
+        boolean isLocalImageAvailable = imageSaver.doesFileExist();
+
+        if (isLocalImageAvailable) {
+
+            SportEvent event = availableSportsList.get(position);
+            Bitmap tempBitmap;
+            if (event.isHeaderBitmapAvailable()) {
+                tempBitmap = event.getLocalBitmap();
+                Log.d(TAG, "image loaded from local bitmap: " + position);
+            } else {
+                tempBitmap = imageSaver.load();
+                Log.d(TAG, "image loaded from internal storage: " + position);
+            }
+            availableSportsList.get(position).setLocalBitmap(tempBitmap);
+            holder.ivSportIcon.setImageBitmap(tempBitmap);
+
+
+        } else {
+            Log.d(TAG, "image loaded from Internet: " + position);
             ImageRequest request = new ImageRequest(availableSportsList.get(position).header_url,
                     new Response.Listener<Bitmap>() {
                         @Override
                         public void onResponse(Bitmap bitmap) {
                             holder.ivSportIcon.setImageBitmap(bitmap);
                             imageSaver.save(bitmap);
+                            availableSportsList.get(position).setLocalBitmap(bitmap);
                         }
                     }, 0, 0, null,
                     new Response.ErrorListener() {

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -54,6 +55,7 @@ public class ImageSaver {
     //@NonNull
     private File createFile() {
         File directory = context.getDir(directoryName, Context.MODE_PRIVATE);
+        Log.d("ImageSaver",new File(directory, fileName).getPath());
         return new File(directory, fileName);
     }
 
