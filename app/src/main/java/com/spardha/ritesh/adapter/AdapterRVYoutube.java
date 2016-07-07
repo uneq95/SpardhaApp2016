@@ -1,7 +1,6 @@
 package com.spardha.ritesh.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -19,7 +17,6 @@ import com.android.volley.toolbox.ImageRequest;
 import com.spardha.ritesh.R;
 import com.spardha.ritesh.models.YouTubeVideo;
 import com.spardha.ritesh.utils.AppSingleton;
-import com.spardha.ritesh.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -27,12 +24,12 @@ import java.util.ArrayList;
 /**
  * Created by ritesh_kumar on 10-May-16.
  */
-public class YoutubeAdapter extends RecyclerView.Adapter<YoutubeAdapter.ViewHolder> {
+public class AdapterRVYoutube extends RecyclerView.Adapter<AdapterRVYoutube.ViewHolder> {
 
     ArrayList<YouTubeVideo> videoList;
     Context context;
 
-    public YoutubeAdapter(ArrayList<YouTubeVideo> videoList, Context context) {
+    public AdapterRVYoutube(ArrayList<YouTubeVideo> videoList, Context context) {
         this.videoList = videoList;
         this.context = context;
     }

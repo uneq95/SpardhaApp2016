@@ -22,7 +22,8 @@ public class Constants {
     /*Constants for AdapterViewPagerHome*/
     public static final String[] TAB_HOME_TITLES = {"UPDATES", "EVENTS", "INFORMALS", "PHOTO WALL", "VIDEO WALL", "TESTIMONIALS"};
 
-    /*Constants for SportsViewPagerAdapter*/
+    /*Constants for AdapterViewPagerSports*/
     public static final String[] TAB_SPORTS_TITLES = {"UPDATES", "FIXTURES", "RESULTS", "RULES", "CONTACTS", "HALL OF FAME"};
+
 
 }

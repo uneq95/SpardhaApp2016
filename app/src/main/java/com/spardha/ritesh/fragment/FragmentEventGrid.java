@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.spardha.ritesh.R;
-import com.spardha.ritesh.adapter.AdapterRVEventGrid;
+import com.spardha.ritesh.adapter.AdapterRVEventList;
 import com.spardha.ritesh.models.SportEvent;
 import com.spardha.ritesh.utils.ItemOffsetDecoration;
 
@@ -86,7 +86,7 @@ public class FragmentEventGrid extends Fragment {
     }
 
     public void updateEvents(ArrayList<SportEvent> availableSportsList){
-        AdapterRVEventGrid adapterRVEventGrid = new AdapterRVEventGrid(getActivity(),availableSportsList);
+        AdapterRVEventList adapterRVEventGrid = new AdapterRVEventList(getActivity(),availableSportsList);
         recyclerView.setAdapter(adapterRVEventGrid);
     }
 

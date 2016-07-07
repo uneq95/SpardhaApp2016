@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by ritesh on 5/31/16.
  */
-public class SportsViewPagerAdapter extends FragmentStatePagerAdapter {
+public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
 
     FragmentSportHallOfFame fragmentSportHallOfFame;
     FragmentSportContacts fragmentSportContacts;
@@ -28,7 +28,7 @@ public class SportsViewPagerAdapter extends FragmentStatePagerAdapter {
     FragmentSportRules fragmentSportRules;
     FragmentSportResults fragmentSportResults;
 
-    public SportsViewPagerAdapter(FragmentManager fragmentManager) {
+    public AdapterViewPagerSports(FragmentManager fragmentManager) {
         super(fragmentManager);
         fragmentSportHallOfFame = new FragmentSportHallOfFame();
         fragmentSportContacts = new FragmentSportContacts();

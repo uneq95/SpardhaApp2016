@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.spardha.ritesh.R;
-import com.spardha.ritesh.adapter.SportsViewPagerAdapter;
+import com.spardha.ritesh.adapter.AdapterViewPagerSports;
 import com.spardha.ritesh.models.Contact;
 import com.spardha.ritesh.models.Sport;
 
@@ -36,7 +36,7 @@ public class ActivitySports extends AppCompatActivity {
 
     private String SPORTS_NAME;
     DatabaseReference myRef;
-    SportsViewPagerAdapter sportsViewPagerAdapter;
+    AdapterViewPagerSports sportsViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +89,7 @@ public class ActivitySports extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        sportsViewPagerAdapter = new SportsViewPagerAdapter(getSupportFragmentManager());
+        sportsViewPagerAdapter = new AdapterViewPagerSports(getSupportFragmentManager());
         //sportsViewPagerAdapter.
         viewPager.setOffscreenPageLimit(5);
         viewPager.setAdapter(sportsViewPagerAdapter);
@@ -130,7 +130,7 @@ public class ActivitySports extends AppCompatActivity {
                     Contact c = contact.getValue(Contact.class);
                     Log.d("contact:: ", c.name + " " + c.phone);
                     contacts.add(c);
-                    //TODO use this arraylist containing contact and update it in FragmentSportContact fragment instance from the SportsViewPagerAdapter
+                    //TODO use this arraylist containing contact and update it in FragmentSportContact fragment instance from the AdapterViewPagerSports
 
                 }
 

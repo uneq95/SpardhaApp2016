@@ -8,9 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -20,7 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.spardha.ritesh.R;
-import com.spardha.ritesh.adapter.YoutubeAdapter;
+import com.spardha.ritesh.adapter.AdapterRVYoutube;
 import com.spardha.ritesh.models.YouTubeVideo;
 import com.spardha.ritesh.utils.AppSingleton;
 import com.spardha.ritesh.utils.Constants;
@@ -100,7 +98,7 @@ public class FragmentVideoWall extends Fragment {
                     e.printStackTrace();
                 }
 
-                YoutubeAdapter adapter = new YoutubeAdapter(youTubeVideos, getContext());
+                AdapterRVYoutube adapter = new AdapterRVYoutube(youTubeVideos, getContext());
                 videoRecyclerView.setAdapter(adapter);
                 if (swipeRefreshLayout.isRefreshing()) {
                     swipeRefreshLayout.setRefreshing(false);
