@@ -15,7 +15,7 @@ import java.io.Serializable;
 @IgnoreExtraProperties
 public class SportEvent implements Serializable {
 
-    /*parameters loaded fro Firebase*/
+    /*parameters loaded from Firebase*/
     public String header_url;
     public String sport_name;
 

@@ -1,8 +1,11 @@
 package com.spardha.ritesh.adapter;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -91,7 +94,7 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
             requestQueue.add(request);
         }
 
-        holder.cardView.setOnClickListener(new EventOnClickListener(availableSportsList.get(position).sport_name, context));
+        holder.cardView.setOnClickListener(new EventOnClickListener(availableSportsList.get(position).sport_name, context,holder.ivSportIcon));
 
     }
 
@@ -117,10 +120,12 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
 
         String sportName;
         Context context;
+        View sharedView;
 
-        public EventOnClickListener(String sportName, Context context) {
+        public EventOnClickListener(String sportName, Context context,View sharedView) {
             this.context = context;
             this.sportName = sportName.toLowerCase();
+            this.sharedView=sharedView;
         }
 
         @Override
@@ -128,7 +133,15 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
             Intent intent = new Intent(context, ActivitySports.class);
             intent.putExtra(Constants.EXTRA_SPORT_NAME, sportName);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
+
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+                //sharing transition of event image to sports header
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity) context,sharedView,"robot");
+                context.startActivity(intent, options.toBundle());
+            }else{
+                context.startActivity(intent);
+            }
+
         }
     }
 }

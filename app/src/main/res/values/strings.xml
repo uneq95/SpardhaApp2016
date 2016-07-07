@@ -8,4 +8,6 @@
     <string name="video_thumbnail">Video Thumbnail</string>
     <string name="default_title">Video Title</string>
     <string name="default_description">This is the default description of the video ...</string>
+
+    <string name="event_image_transition">event_image_to_header</string>
 </resources>

@@ -20,7 +20,8 @@
             android:layout_height="match_parent"
             android:id="@+id/ivSportsIcon"
             android:scaleType="centerCrop"
-            android:src="@drawable/header_cricket" />
+            android:src="@drawable/header_cricket"
+            android:transitionName="@string/event_image_transition"/>
 
         <TextView
             android:layout_width="match_parent"
