@@ -1,5 +1,7 @@
 package com.spardha.ritesh.models;
 
+import android.graphics.Bitmap;
+
 import com.google.firebase.database.IgnoreExtraProperties;
 
 /**
@@ -13,7 +15,21 @@ public class Testimonial {
     public String image_url;
     public String words;
 
+    /*parameters for local optimisation*/
+    private Bitmap imageBitmap=null;
+
     public Testimonial(){
 
     }
+
+    public void setLocalBitmap(Bitmap bitmap){
+        imageBitmap=bitmap;
+    }
+    public Bitmap getLocalBitmap(){
+        return imageBitmap;
+    }
+    public boolean isHeaderBitmapAvailable(){
+        return imageBitmap != null;
+    }
+
 }

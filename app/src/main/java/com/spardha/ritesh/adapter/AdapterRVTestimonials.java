@@ -3,6 +3,7 @@ package com.spardha.ritesh.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.spardha.ritesh.R;
+import com.spardha.ritesh.models.SportEvent;
 import com.spardha.ritesh.models.Testimonial;
 import com.spardha.ritesh.utils.AppSingleton;
+import com.spardha.ritesh.utils.ImageSaver;
 import com.spardha.ritesh.views.RoundedImageView;
 
 import java.util.ArrayList;
@@ -27,6 +30,7 @@ public class AdapterRVTestimonials extends RecyclerView.Adapter<AdapterRVTestimo
     Context context;
     ArrayList<Testimonial> testimonials;
     RequestQueue requestQueue;
+    private final String TAG="AdapterRVTestimonials";
 
     public AdapterRVTestimonials(Context context, ArrayList<Testimonial> testimonials) {
         this.context = context;
@@ -47,21 +51,45 @@ public class AdapterRVTestimonials extends RecyclerView.Adapter<AdapterRVTestimo
         holder.tvGuestName.setText(testimonials.get(position).guest_name);
         holder.tvWords.setText(testimonials.get(position).words);
 
-        ImageRequest request = new ImageRequest(testimonials.get(position).image_url,
-                new Response.Listener<Bitmap>() {
-                    @Override
-                    public void onResponse(Bitmap bitmap) {
-                        holder.roundedImageView.setImageBitmap(bitmap);
-                        //imageSaver.save(bitmap);
-                        //testimonials.get(position).setLocalBitmap(bitmap);
-                    }
-                }, 0, 0, null,
-                new Response.ErrorListener() {
-                    public void onErrorResponse(VolleyError error) {
-                        //mImageView.setImageResource(R.drawable.image_load_error);
-                    }
-                });
-        requestQueue.add(request);
+        String fileName = testimonials.get(position).guest_name.replace(" ", "_").concat(".jpg");
+        final ImageSaver imageSaver = new ImageSaver(context).setFileName(fileName);
+        boolean isLocalImageAvailable = imageSaver.doesFileExist();
+
+        if (isLocalImageAvailable) {
+
+            Testimonial testimonialObject = testimonials.get(position);
+            Bitmap tempBitmap;
+            if (testimonialObject.isHeaderBitmapAvailable()) {
+                tempBitmap = testimonialObject.getLocalBitmap();
+                Log.d(TAG, "image loaded from local bitmap: " + position);
+            } else {
+                tempBitmap = imageSaver.load();
+                Log.d(TAG, "image loaded from internal storage: " + position);
+            }
+            testimonials.get(position).setLocalBitmap(tempBitmap);
+            holder.roundedImageView.setImageBitmap(tempBitmap);
+
+
+        } else {
+            Log.d(TAG, "image loaded from Internet: " + position);
+            ImageRequest request = new ImageRequest(testimonials.get(position).image_url,
+                    new Response.Listener<Bitmap>() {
+                        @Override
+                        public void onResponse(Bitmap bitmap) {
+                            holder.roundedImageView.setImageBitmap(bitmap);
+                            imageSaver.save(bitmap);
+                            testimonials.get(position).setLocalBitmap(bitmap);
+                        }
+                    }, 0, 0, null,
+                    new Response.ErrorListener() {
+                        public void onErrorResponse(VolleyError error) {
+                            //mImageView.setImageResource(R.drawable.image_load_error);
+                        }
+                    });
+            requestQueue.add(request);
+        }
+
+
     }
 
     @Override
