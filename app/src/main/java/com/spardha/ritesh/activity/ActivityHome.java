@@ -24,16 +24,17 @@ public class ActivityHome extends AppCompatActivity {
     AdapterViewPagerHome adapterViewPagerHome;
     ViewPager viewPager;
     TabLayout tabLayout;
-    static boolean calledAlready = true;
+    //static boolean calledAlready = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         setContentView(R.layout.activity_home);
-        if (!calledAlready) {
+        /*if (!calledAlready) {
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             calledAlready = true;
-        }
+        }*/
         final Toolbar toolbar = (Toolbar) findViewById(R.id.htab_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Spardha'16");
@@ -43,10 +44,7 @@ public class ActivityHome extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.htab_viewpager);
         setupViewPager(viewPager);
 
-
         tabLayout = (TabLayout) findViewById(R.id.htab_tabs);
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(viewPager);
 
 

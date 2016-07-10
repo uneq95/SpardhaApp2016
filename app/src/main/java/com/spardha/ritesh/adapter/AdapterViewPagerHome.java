@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.spardha.ritesh.fragment.FragmentEventGrid;
 import com.spardha.ritesh.fragment.FragmentSportContacts;
+import com.spardha.ritesh.fragment.FragmentTestimonials;
 import com.spardha.ritesh.fragment.FragmentVideoWall;
 import com.spardha.ritesh.utils.Constants;
 
@@ -26,6 +27,8 @@ public class AdapterViewPagerHome extends FragmentStatePagerAdapter {
                 return new FragmentEventGrid();
             case 4:
                 return new FragmentVideoWall();
+            case 5:
+                return new FragmentTestimonials();
             default:
                 return new FragmentSportContacts();
         }
