@@ -1,5 +1,6 @@
 package com.spardha.ritesh.adapter;
 
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -27,8 +28,8 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
     FragmentSportUpdates fragmentSportUpdates;
     FragmentSportRules fragmentSportRules;
     FragmentSportResults fragmentSportResults;
-
-    public AdapterViewPagerSports(FragmentManager fragmentManager) {
+    String SPORTS_NAME;
+    public AdapterViewPagerSports(FragmentManager fragmentManager,String sport_name) {
         super(fragmentManager);
         fragmentSportHallOfFame = new FragmentSportHallOfFame();
         fragmentSportContacts = new FragmentSportContacts();
@@ -36,6 +37,7 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
         fragmentSportUpdates = new FragmentSportUpdates();
         fragmentSportResults = new FragmentSportResults();
         fragmentSportRules = new FragmentSportRules();
+        this.SPORTS_NAME=sport_name;
     }
 
     @Override
@@ -50,6 +52,9 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
             case 3:
                 return fragmentSportRules;
             case 4:
+                Bundle bundle = new Bundle();
+                bundle.putString("sport_name",SPORTS_NAME);
+                fragmentSportContacts.setArguments(bundle);
                 return fragmentSportContacts;
             case 5:
                 return fragmentSportHallOfFame;

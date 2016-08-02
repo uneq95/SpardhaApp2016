@@ -25,6 +25,7 @@ import com.spardha.ritesh.R;
 import com.spardha.ritesh.adapter.AdapterViewPagerSports;
 import com.spardha.ritesh.models.Contact;
 import com.spardha.ritesh.models.Sport;
+import com.spardha.ritesh.utils.ImageSaver;
 
 import java.util.ArrayList;
 
@@ -35,8 +36,8 @@ public class ActivitySports extends AppCompatActivity {
 
 
     private String SPORTS_NAME;
-    DatabaseReference myRef;
-    AdapterViewPagerSports sportsViewPagerAdapter;
+    private DatabaseReference myRef;
+    private AdapterViewPagerSports sportsViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,8 @@ public class ActivitySports extends AppCompatActivity {
         myRef = firebaseDatabase.getReference(SPORTS_NAME);
 
         setContentView(R.layout.activity_sports_layout);
+        ImageView headerImage = (ImageView) findViewById(R.id.htab_header);
+        updateHeaderImage(headerImage);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.htab_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(SPORTS_NAME.toUpperCase());
@@ -65,7 +68,7 @@ public class ActivitySports extends AppCompatActivity {
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.htab_collapse_toolbar);
         collapsingToolbarLayout.setTitleEnabled(false);
 
-        ImageView header = (ImageView) findViewById(R.id.htab_header);
+
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
                 R.drawable.header_cricket);
@@ -89,7 +92,7 @@ public class ActivitySports extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        sportsViewPagerAdapter = new AdapterViewPagerSports(getSupportFragmentManager());
+        sportsViewPagerAdapter = new AdapterViewPagerSports(getSupportFragmentManager(),SPORTS_NAME);
         //sportsViewPagerAdapter.
         viewPager.setOffscreenPageLimit(5);
         viewPager.setAdapter(sportsViewPagerAdapter);
@@ -135,9 +138,9 @@ public class ActivitySports extends AppCompatActivity {
                 }
 
                 System.out.println(getSupportFragmentManager().getFragments());
-                sportsViewPagerAdapter.updateFragment(sport.hall_of_fame.winner, sport.hall_of_fame.runner_up);
-                String string = String.format("header:%s\nrule:%s\nrunner up:%s\nwinner:%s", sport.header_url, sport.rules, sport.hall_of_fame.runner_up, sport.hall_of_fame.winner);
-                Log.d("Data from firebase: ", string);
+//                sportsViewPagerAdapter.updateFragment(sport.hall_of_fame.winner, sport.hall_of_fame.runner_up);
+               // String string = String.format("header:%s\nrule:%s\nrunner up:%s\nwinner:%s", sport.header_url, sport.rules, sport.hall_of_fame.runner_up, sport.hall_of_fame.winner);
+                //Log.d("Data from firebase: ", string);
             }
 
             @Override
@@ -148,5 +151,11 @@ public class ActivitySports extends AppCompatActivity {
         };
         myRef.addValueEventListener(sportsDataListener);
 
+    }
+    private void updateHeaderImage(ImageView headerImage){
+        String fileName =SPORTS_NAME.replace(" ", "_").concat(".jpg");
+        ImageSaver imageSaver = new ImageSaver(this).setFileName(fileName);
+        Bitmap bitmap = imageSaver.load();
+        headerImage.setImageBitmap(bitmap);
     }
 }

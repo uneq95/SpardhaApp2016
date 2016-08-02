@@ -116,7 +116,7 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
         }
     }
 
-    public class EventOnClickListener implements View.OnClickListener {
+    private class EventOnClickListener implements View.OnClickListener {
 
         String sportName;
         Context context;

@@ -14,7 +14,7 @@ public class Constants {
     }
 
     public static String getGoogleDevKey(){
-        return new String(GOOGLE_DEV_KEY);
+        return GOOGLE_DEV_KEY;
     }
 
     /*Constants for Youtube Adapter and ActivityYoutubePlayer*/

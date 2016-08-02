@@ -30,7 +30,7 @@ public class AdapterViewPagerHome extends FragmentStatePagerAdapter {
             case 5:
                 return new FragmentTestimonials();
             default:
-                return new FragmentSportContacts();
+                return new FragmentTestimonials();
         }
 
     }
