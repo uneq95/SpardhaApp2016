@@ -1,5 +1,6 @@
 package com.spardha.ritesh.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -81,6 +82,7 @@ public class ActivityHome extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Stared Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.item_map:
+                        startActivity(new Intent(ActivityHome.this,MapsActivity.class));
                         Toast.makeText(getApplicationContext(), "Send Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.item_contacts:
