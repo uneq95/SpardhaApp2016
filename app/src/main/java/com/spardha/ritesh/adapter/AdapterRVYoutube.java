@@ -64,7 +64,7 @@ public class AdapterRVYoutube extends RecyclerView.Adapter<AdapterRVYoutube.View
                 });
 // Access the RequestQueue through your singleton class.
         AppSingleton.getInstance(context).addToRequestQueue(request);
-        holder.cvYoutubeVideoObject.setOnClickListener(new VideoClickListener(videoList.get(position).getVideoID(),context));
+        holder.cvYoutubeVideoObject.setOnClickListener(new VideoClickListener(videoList.get(position).getVideoID(), context));
     }
 
     @Override
@@ -92,16 +92,17 @@ public class AdapterRVYoutube extends RecyclerView.Adapter<AdapterRVYoutube.View
 
         String videoID;
         Context context;
-        public VideoClickListener(String videoId,Context context) {
+
+        public VideoClickListener(String videoId, Context context) {
             this.videoID = videoId;
-            this.context=context;
+            this.context = context;
         }
 
         @Override
         public void onClick(View v) {
-            Log.d("VideoClickListener","item clicked : "+videoID);
+            Log.d("VideoClickListener", "item clicked : " + videoID);
             //TODO initialize intent
-            Intent videoIntent= new Intent(context, ActivityYouTubePlayer.class);
+            Intent videoIntent = new Intent(context, ActivityYouTubePlayer.class);
             videoIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             videoIntent.putExtra(Constants.EXTRA_VIDEO_ID, videoID);
             context.startActivity(videoIntent);

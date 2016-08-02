@@ -31,6 +31,7 @@ public class ImageLoaderHelper {
 
         return inSampleSize;
     }
+
     public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
                                                          int reqWidth, int reqHeight) {
 

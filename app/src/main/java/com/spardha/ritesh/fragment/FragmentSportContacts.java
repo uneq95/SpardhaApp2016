@@ -18,11 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.spardha.ritesh.R;
-import com.spardha.ritesh.activity.ActivitySports;
 import com.spardha.ritesh.adapter.AdapterSportContacts;
 import com.spardha.ritesh.models.Contact;
 import com.spardha.ritesh.models.Sport;
-import com.spardha.ritesh.models.SportEvent;
 import com.spardha.ritesh.utils.ItemOffsetDecoration;
 
 import java.util.ArrayList;
@@ -34,24 +32,25 @@ public class FragmentSportContacts extends Fragment {
 
     RecyclerView recyclerView;
     AdapterSportContacts adapter;
-    FirebaseDatabase firebaseDatabase ;
+    FirebaseDatabase firebaseDatabase;
     DatabaseReference dbRef;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View superView = inflater.inflate(R.layout.fragment_sport_contacts,container,false);
-        recyclerView =(RecyclerView)superView.findViewById(R.id.rvContacts);
+        View superView = inflater.inflate(R.layout.fragment_sport_contacts, container, false);
+        recyclerView = (RecyclerView) superView.findViewById(R.id.rvContacts);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),1,LinearLayoutManager.VERTICAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.grid_spacing);
         recyclerView.addItemDecoration(itemDecoration);
-        Bundle bundle =this.getArguments();
+        Bundle bundle = this.getArguments();
 
         String SPORTS_NAME = bundle.getString("sport_name");
         //String SPORTS_NAME ="cricket";
-                firebaseDatabase = FirebaseDatabase.getInstance();
-        dbRef=firebaseDatabase.getReference(SPORTS_NAME);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        dbRef = firebaseDatabase.getReference(SPORTS_NAME);
         final ValueEventListener sportsDataListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -92,8 +91,8 @@ public class FragmentSportContacts extends Fragment {
 
     }
 
-    private void setRecyclerView(ArrayList<Contact> contacts){
-        adapter= new AdapterSportContacts(contacts,getContext());
+    private void setRecyclerView(ArrayList<Contact> contacts) {
+        adapter = new AdapterSportContacts(contacts, getContext());
         recyclerView.setAdapter(adapter);
     }
 }

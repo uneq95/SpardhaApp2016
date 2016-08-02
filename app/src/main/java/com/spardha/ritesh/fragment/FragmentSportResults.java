@@ -17,7 +17,7 @@ public class FragmentSportResults extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View superView = inflater.inflate(R.layout.fragment_sport_results,container,false);
+        View superView = inflater.inflate(R.layout.fragment_sport_results, container, false);
         return superView;
     }
 }

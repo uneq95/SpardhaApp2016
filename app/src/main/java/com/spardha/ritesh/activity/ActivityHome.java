@@ -73,6 +73,7 @@ public class ActivityHome extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         adapterViewPagerHome = new AdapterViewPagerHome(getSupportFragmentManager());
         viewPager.setOffscreenPageLimit(6);
+        //TODO remove this limit and handle memory issues
         viewPager.setAdapter(adapterViewPagerHome);
     }
 

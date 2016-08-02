@@ -31,15 +31,16 @@ public class FragmentEventGrid extends Fragment {
     View superView;
     ArrayList<SportEvent> availableSportsList;
     RecyclerView recyclerView;
-    FirebaseDatabase firebaseDatabase ;
+    FirebaseDatabase firebaseDatabase;
     DatabaseReference dbRef;
+
     //static boolean calledAlready = false;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        superView = inflater.inflate(R.layout.fragment_events_grid,container,false);
+        superView = inflater.inflate(R.layout.fragment_events_grid, container, false);
         recyclerView = (RecyclerView) superView.findViewById(R.id.rvEventGrid);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),1,LinearLayoutManager.VERTICAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1, LinearLayoutManager.VERTICAL, false);
 
         recyclerView.setLayoutManager(gridLayoutManager);
 
@@ -58,18 +59,18 @@ public class FragmentEventGrid extends Fragment {
             calledAlready = true;
         }*/
         firebaseDatabase = FirebaseDatabase.getInstance();
-        dbRef=firebaseDatabase.getReference("sport_list");
+        dbRef = firebaseDatabase.getReference("sport_list");
         final ValueEventListener availableEventsListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Iterable<DataSnapshot> eventsChildren = dataSnapshot.getChildren();
                 availableSportsList = new ArrayList<>();
-                for (DataSnapshot sportEvent:eventsChildren
+                for (DataSnapshot sportEvent : eventsChildren
                         ) {
 
                     SportEvent se = sportEvent.getValue(SportEvent.class);
-                    Log.d("contact:: ",se.sport_name+" "+se.header_url);
+                    Log.d("contact:: ", se.sport_name + " " + se.header_url);
                     availableSportsList.add(se);
                 }
                 updateEvents(availableSportsList);
@@ -85,8 +86,8 @@ public class FragmentEventGrid extends Fragment {
 
     }
 
-    public void updateEvents(ArrayList<SportEvent> availableSportsList){
-        AdapterRVEventList adapterRVEventGrid = new AdapterRVEventList(getActivity(),availableSportsList);
+    public void updateEvents(ArrayList<SportEvent> availableSportsList) {
+        AdapterRVEventList adapterRVEventGrid = new AdapterRVEventList(getActivity(), availableSportsList);
         recyclerView.setAdapter(adapterRVEventGrid);
     }
 

@@ -17,7 +17,7 @@ public class FragmentSportHallOfFame extends Fragment {
 
     public TextView tvWinner, tvRunnerUp;
     public static final String TAG = "hall_of_fame";
-    public static String winnerName="winner",runnerUpName="runnerup";
+    public static String winnerName = "winner", runnerUpName = "runnerup";
 
     @Nullable
     @Override
@@ -31,8 +31,8 @@ public class FragmentSportHallOfFame extends Fragment {
     }
 
     public void updateViews(String winner, String runnerup) {
-        winnerName=winner;
-        runnerUpName=runnerup;
+        winnerName = winner;
+        runnerUpName = runnerup;
 //        if (tvWinner != null)
 //            tvWinner.setText(winner);
 //        if (tvRunnerUp != null)

@@ -16,19 +16,21 @@ public class Testimonial {
     public String words;
 
     /*parameters for local optimisation*/
-    private Bitmap imageBitmap=null;
+    private Bitmap imageBitmap = null;
 
-    public Testimonial(){
+    public Testimonial() {
 
     }
 
-    public void setLocalBitmap(Bitmap bitmap){
-        imageBitmap=bitmap;
+    public void setLocalBitmap(Bitmap bitmap) {
+        imageBitmap = bitmap;
     }
-    public Bitmap getLocalBitmap(){
+
+    public Bitmap getLocalBitmap() {
         return imageBitmap;
     }
-    public boolean isHeaderBitmapAvailable(){
+
+    public boolean isHeaderBitmapAvailable() {
         return imageBitmap != null;
     }
 

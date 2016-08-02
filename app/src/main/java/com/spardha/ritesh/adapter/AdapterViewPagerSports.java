@@ -29,7 +29,8 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
     FragmentSportRules fragmentSportRules;
     FragmentSportResults fragmentSportResults;
     String SPORTS_NAME;
-    public AdapterViewPagerSports(FragmentManager fragmentManager,String sport_name) {
+
+    public AdapterViewPagerSports(FragmentManager fragmentManager, String sport_name) {
         super(fragmentManager);
         fragmentSportHallOfFame = new FragmentSportHallOfFame();
         fragmentSportContacts = new FragmentSportContacts();
@@ -37,7 +38,7 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
         fragmentSportUpdates = new FragmentSportUpdates();
         fragmentSportResults = new FragmentSportResults();
         fragmentSportRules = new FragmentSportRules();
-        this.SPORTS_NAME=sport_name;
+        this.SPORTS_NAME = sport_name;
     }
 
     @Override
@@ -53,7 +54,7 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
                 return fragmentSportRules;
             case 4:
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name",SPORTS_NAME);
+                bundle.putString("sport_name", SPORTS_NAME);
                 fragmentSportContacts.setArguments(bundle);
                 return fragmentSportContacts;
             case 5:

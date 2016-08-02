@@ -15,21 +15,21 @@ public class Contact {
     public String name;
     public String phone;
 
-    public Contact(){
+    public Contact() {
         // Default constructor required for calls to DataSnapshot.getValue(Contact.class)
     }
 
-    public Contact(String name,String phone){
-        this.name=name;
-        this.phone=phone;
+    public Contact(String name, String phone) {
+        this.name = name;
+        this.phone = phone;
 
     }
 
     @Exclude
-    public Map<String,Object> toMap(){
+    public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("name",name);
-        result.put("phone",phone);
+        result.put("name", name);
+        result.put("phone", phone);
         return result;
     }
 }

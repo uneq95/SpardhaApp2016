@@ -15,25 +15,24 @@ import android.support.v4.content.ContextCompat;
  */
 public class Utilities {
 
-    public static void makeCall(Context context,String mobileNum){
+    public static void makeCall(Context context, String mobileNum) {
 
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse(String.format("tel:%s", mobileNum)));
 
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-            if ( ContextCompat.checkSelfPermission( context, Manifest.permission.CALL_PHONE ) != PackageManager.PERMISSION_GRANTED ) {
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
 
-                ActivityCompat.requestPermissions((Activity) context, new String[] {  Manifest.permission.CALL_PHONE  },0);
-            }else{
+                ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CALL_PHONE}, 0);
+            } else {
                 context.startActivity(intent);
             }
-        }else{
+        } else {
             context.startActivity(intent);
         }
 
 
-
     }
-    
+
 }

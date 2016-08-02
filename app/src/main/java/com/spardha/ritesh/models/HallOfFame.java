@@ -15,20 +15,20 @@ public class HallOfFame {
     public String runner_up;
     public String winner;
 
-    public HallOfFame(){
+    public HallOfFame() {
 
     }
 
-    public HallOfFame(String winner,String runner_up){
-        this.winner=winner;
+    public HallOfFame(String winner, String runner_up) {
+        this.winner = winner;
         this.runner_up = runner_up;
     }
 
     @Exclude
-    public Map<String,Object> toMap(){
+    public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("runner_up", runner_up);
-        result.put("winner",winner);
+        result.put("winner", winner);
         return result;
     }
 }

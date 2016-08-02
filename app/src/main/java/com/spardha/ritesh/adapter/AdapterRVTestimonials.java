@@ -14,7 +14,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.spardha.ritesh.R;
-import com.spardha.ritesh.models.SportEvent;
 import com.spardha.ritesh.models.Testimonial;
 import com.spardha.ritesh.utils.AppSingleton;
 import com.spardha.ritesh.utils.ImageSaver;
@@ -30,7 +29,7 @@ public class AdapterRVTestimonials extends RecyclerView.Adapter<AdapterRVTestimo
     Context context;
     ArrayList<Testimonial> testimonials;
     RequestQueue requestQueue;
-    private final String TAG="AdapterRVTestimonials";
+    private final String TAG = "AdapterRVTestimonials";
 
     public AdapterRVTestimonials(Context context, ArrayList<Testimonial> testimonials) {
         this.context = context;
@@ -99,14 +98,14 @@ public class AdapterRVTestimonials extends RecyclerView.Adapter<AdapterRVTestimo
 
     public static final class ViewHolder extends RecyclerView.ViewHolder {
         RoundedImageView roundedImageView;
-        TextView tvGuestName,tvGuestJob,tvWords;
+        TextView tvGuestName, tvGuestJob, tvWords;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvGuestName= (TextView) itemView.findViewById(R.id.tvTestiCeleb);
-            tvGuestJob= (TextView) itemView.findViewById(R.id.tvTestiCelebDesg);
-            tvWords= (TextView) itemView.findViewById(R.id.tvTestDesc);
-            roundedImageView=(RoundedImageView)itemView.findViewById(R.id.testi_img);
+            tvGuestName = (TextView) itemView.findViewById(R.id.tvTestiCeleb);
+            tvGuestJob = (TextView) itemView.findViewById(R.id.tvTestiCelebDesg);
+            tvWords = (TextView) itemView.findViewById(R.id.tvTestDesc);
+            roundedImageView = (RoundedImageView) itemView.findViewById(R.id.testi_img);
         }
     }
 }

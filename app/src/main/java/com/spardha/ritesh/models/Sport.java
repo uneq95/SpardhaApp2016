@@ -17,23 +17,23 @@ public class Sport {
     public String header_url;
     public HallOfFame hall_of_fame;
 
-    public Sport(){
+    public Sport() {
 
     }
 
-    public Sport(String rules, String header_url, HallOfFame hall_of_fame){
+    public Sport(String rules, String header_url, HallOfFame hall_of_fame) {
 
         this.rules = rules;
-        this.header_url=header_url;
+        this.header_url = header_url;
         this.hall_of_fame = hall_of_fame;
 
     }
 
     @Exclude
-    public Map<String,Object> toMap(){
+    public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("hall_of_fame", hall_of_fame);
-        result.put("header_url",header_url);
+        result.put("header_url", header_url);
         result.put("rules", rules);
         return result;
     }

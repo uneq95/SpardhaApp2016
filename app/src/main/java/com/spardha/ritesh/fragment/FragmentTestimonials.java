@@ -16,7 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.spardha.ritesh.R;
-import com.spardha.ritesh.adapter.AdapterRVEventList;
 import com.spardha.ritesh.adapter.AdapterRVTestimonials;
 import com.spardha.ritesh.models.Testimonial;
 import com.spardha.ritesh.utils.ItemOffsetDecoration;
@@ -48,13 +47,13 @@ public class FragmentTestimonials extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference =firebaseDatabase.getReference("testimonials");
+        DatabaseReference databaseReference = firebaseDatabase.getReference("testimonials");
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> eventsChildren = dataSnapshot.getChildren();
-                ArrayList<Testimonial> testimonials  = new ArrayList<>();
-                for (DataSnapshot testimonialObject:eventsChildren
+                ArrayList<Testimonial> testimonials = new ArrayList<>();
+                for (DataSnapshot testimonialObject : eventsChildren
                         ) {
 
                     Testimonial se = testimonialObject.getValue(Testimonial.class);
@@ -71,8 +70,8 @@ public class FragmentTestimonials extends Fragment {
         databaseReference.addValueEventListener(valueEventListener);
     }
 
-    private void updateTestimonials(ArrayList<Testimonial> testimonials){
-        AdapterRVTestimonials adapterRVTestimonials = new AdapterRVTestimonials(getActivity(),testimonials);
+    private void updateTestimonials(ArrayList<Testimonial> testimonials) {
+        AdapterRVTestimonials adapterRVTestimonials = new AdapterRVTestimonials(getActivity(), testimonials);
         recyclerView.setAdapter(adapterRVTestimonials);
     }
 }

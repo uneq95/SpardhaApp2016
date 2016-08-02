@@ -3,7 +3,6 @@ package com.spardha.ritesh.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.io.File;
@@ -17,8 +16,9 @@ import java.io.IOException;
 public class ImageSaver {
 
     private String directoryName = "images";
-    private String fileName = "image.png" ;
+    private String fileName = "image.png";
     private Context context;
+    String TAG = "ImageSaver";
 
     public ImageSaver(Context context) {
         this.context = context;
@@ -55,7 +55,7 @@ public class ImageSaver {
     //@NonNull
     private File createFile() {
         File directory = context.getDir(directoryName, Context.MODE_PRIVATE);
-        Log.d("ImageSaver",new File(directory, fileName).getPath());
+        Log.d(TAG, new File(directory, fileName).getPath());
         return new File(directory, fileName);
     }
 
@@ -63,6 +63,7 @@ public class ImageSaver {
         FileInputStream inputStream = null;
         try {
             inputStream = new FileInputStream(createFile());
+            Log.i(TAG, "returning bitmap");
             return BitmapFactory.decodeStream(inputStream);
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,6 +71,7 @@ public class ImageSaver {
             try {
                 if (inputStream != null) {
                     inputStream.close();
+                    Log.i(TAG, "closing stream");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -78,7 +80,7 @@ public class ImageSaver {
         return null;
     }
 
-    public boolean doesFileExist(){
+    public boolean doesFileExist() {
         return createFile().exists();
     }
 }

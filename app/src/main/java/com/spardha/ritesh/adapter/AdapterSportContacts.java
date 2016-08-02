@@ -22,10 +22,11 @@ public class AdapterSportContacts extends RecyclerView.Adapter<AdapterSportConta
 
     ArrayList<Contact> contactsData;
     Context context;
-    String TAG="AdapterSportContacts";
-    public AdapterSportContacts(ArrayList<Contact> contactsData , Context context){
-        this.contactsData=contactsData;
-        this.context=context;
+    String TAG = "AdapterSportContacts";
+
+    public AdapterSportContacts(ArrayList<Contact> contactsData, Context context) {
+        this.contactsData = contactsData;
+        this.context = context;
 
     }
 
@@ -39,7 +40,7 @@ public class AdapterSportContacts extends RecyclerView.Adapter<AdapterSportConta
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         holder.tvName.setText(contactsData.get(position).name);
-        holder.cardView.setOnClickListener(new ContactOnClickListener(contactsData.get(position),context));
+        holder.cardView.setOnClickListener(new ContactOnClickListener(contactsData.get(position), context));
 
     }
 
@@ -51,25 +52,28 @@ public class AdapterSportContacts extends RecyclerView.Adapter<AdapterSportConta
     public static final class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
         CardView cardView;
-        public ViewHolder(View itemView){
+
+        public ViewHolder(View itemView) {
             super(itemView);
-            tvName=(TextView)itemView.findViewById(R.id.tvcontact);
-            cardView=(CardView)itemView.findViewById(R.id.card_view_contact1);
+            tvName = (TextView) itemView.findViewById(R.id.tvcontact);
+            cardView = (CardView) itemView.findViewById(R.id.card_view_contact1);
         }
     }
 
-    private class ContactOnClickListener implements View.OnClickListener{
+    private class ContactOnClickListener implements View.OnClickListener {
 
         Contact contact;
         Context context;
-        public ContactOnClickListener(Contact contact,Context context){
-            this.contact=contact;
-            this.context=context;
+
+        public ContactOnClickListener(Contact contact, Context context) {
+            this.contact = contact;
+            this.context = context;
         }
+
         @Override
         public void onClick(View v) {
-            Log.i(TAG,contact.phone.trim());
-            Utilities.makeCall(context,contact.phone.trim());
+            Log.i(TAG, contact.phone.trim());
+            Utilities.makeCall(context, contact.phone.trim());
         }
     }
 }

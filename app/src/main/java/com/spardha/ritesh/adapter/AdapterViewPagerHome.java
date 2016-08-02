@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.spardha.ritesh.fragment.FragmentEventGrid;
-import com.spardha.ritesh.fragment.FragmentSportContacts;
 import com.spardha.ritesh.fragment.FragmentTestimonials;
 import com.spardha.ritesh.fragment.FragmentVideoWall;
 import com.spardha.ritesh.utils.Constants;
@@ -44,5 +43,6 @@ public class AdapterViewPagerHome extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return Constants.TAB_HOME_TITLES[position];
     }
+
 
 }

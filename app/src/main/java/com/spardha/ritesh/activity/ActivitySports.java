@@ -69,7 +69,6 @@ public class ActivitySports extends AppCompatActivity {
         collapsingToolbarLayout.setTitleEnabled(false);
 
 
-
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
                 R.drawable.header_cricket);
 
@@ -92,7 +91,7 @@ public class ActivitySports extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        sportsViewPagerAdapter = new AdapterViewPagerSports(getSupportFragmentManager(),SPORTS_NAME);
+        sportsViewPagerAdapter = new AdapterViewPagerSports(getSupportFragmentManager(), SPORTS_NAME);
         //sportsViewPagerAdapter.
         viewPager.setOffscreenPageLimit(5);
         viewPager.setAdapter(sportsViewPagerAdapter);
@@ -139,7 +138,7 @@ public class ActivitySports extends AppCompatActivity {
 
                 System.out.println(getSupportFragmentManager().getFragments());
 //                sportsViewPagerAdapter.updateFragment(sport.hall_of_fame.winner, sport.hall_of_fame.runner_up);
-               // String string = String.format("header:%s\nrule:%s\nrunner up:%s\nwinner:%s", sport.header_url, sport.rules, sport.hall_of_fame.runner_up, sport.hall_of_fame.winner);
+                // String string = String.format("header:%s\nrule:%s\nrunner up:%s\nwinner:%s", sport.header_url, sport.rules, sport.hall_of_fame.runner_up, sport.hall_of_fame.winner);
                 //Log.d("Data from firebase: ", string);
             }
 
@@ -152,8 +151,9 @@ public class ActivitySports extends AppCompatActivity {
         myRef.addValueEventListener(sportsDataListener);
 
     }
-    private void updateHeaderImage(ImageView headerImage){
-        String fileName =SPORTS_NAME.replace(" ", "_").concat(".jpg");
+
+    private void updateHeaderImage(ImageView headerImage) {
+        String fileName = SPORTS_NAME.replace(" ", "_").concat(".jpg");
         ImageSaver imageSaver = new ImageSaver(this).setFileName(fileName);
         Bitmap bitmap = imageSaver.load();
         headerImage.setImageBitmap(bitmap);
