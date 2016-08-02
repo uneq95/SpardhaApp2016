@@ -77,8 +77,8 @@ public class ActivitySports extends AppCompatActivity {
             @Override
             public void onGenerated(Palette palette) {
 
-                int vibrantColor = palette.getVibrantColor(R.color.primary_500);
-                int vibrantDarkColor = palette.getDarkVibrantColor(R.color.primary_700);
+                int vibrantColor = palette.getVibrantColor(R.color.colorPrimary);
+                int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimaryDark);
                 collapsingToolbarLayout.setContentScrimColor(vibrantColor);
                 collapsingToolbarLayout.setStatusBarScrimColor(vibrantDarkColor);
             }
