@@ -22,5 +22,7 @@
     <string name="openDrawer">Drawer opened</string>
     <string name="closeDrawer">Drawer closed</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps2">Map</string>
+
 
 </resources>
