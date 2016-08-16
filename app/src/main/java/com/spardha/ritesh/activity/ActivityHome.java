@@ -83,13 +83,12 @@ public class ActivityHome extends AppCompatActivity {
                         return true;
                     case R.id.item_map:
                         startActivity(new Intent(ActivityHome.this, MapsActivity.class));
-                        Toast.makeText(getApplicationContext(), "Send Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.item_contacts:
                         Toast.makeText(getApplicationContext(), "Drafts Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.item_settings:
-                        Toast.makeText(getApplicationContext(), "All Mail Selected", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ActivityHome.this, SettingsActivity.class));
                         return true;
                     case R.id.item_feedback:
                         Toast.makeText(getApplicationContext(), "Trash Selected", Toast.LENGTH_SHORT).show();

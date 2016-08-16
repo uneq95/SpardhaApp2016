@@ -34,7 +34,7 @@
             fab:fab_colorPressed="@color/ColorPrimary"
             fab:fab_size="mini"
             fab:fab_title="Hospital"
-            fab:fab_icon="@drawable/hospital"/>
+            fab:fab_icon="@drawable/hospital" />
 
         <com.spardha.ritesh.views.fab.FloatingActionButton
             android:id="@+id/button_venue"

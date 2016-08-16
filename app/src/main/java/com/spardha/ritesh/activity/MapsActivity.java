@@ -1,21 +1,15 @@
 package com.spardha.ritesh.activity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,7 +29,7 @@ import com.spardha.ritesh.R;
 import com.spardha.ritesh.views.fab.FloatingActionButton;
 import com.spardha.ritesh.views.fab.FloatingActionsMenu;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.InfoWindowAdapter,GoogleMap.OnInfoWindowClickListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.InfoWindowAdapter, GoogleMap.OnInfoWindowClickListener {
 
 
     private GoogleMap mMap;
@@ -233,13 +227,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        LatLng position =marker.getPosition();
+        LatLng position = marker.getPosition();
         String sLong = Double.toString(position.longitude), sLat = Double.toString(position.latitude);
-        Uri gmmIntentUri = Uri.parse(String.format("google.navigation:q=%s,%s&mode=w",sLat,sLong));
+        Uri gmmIntentUri = Uri.parse(String.format("google.navigation:q=%s,%s&mode=w", sLat, sLong));
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(mapIntent);
+        }else{
+            Toast.makeText(this,"Oops! You don't have Google Maps app installed!",Toast.LENGTH_LONG).show();
         }
 
     }
