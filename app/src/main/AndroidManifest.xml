@@ -57,7 +57,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.spardha.ritesh.activity.ActivityHome" />
         </activity>
-        <activity android:name=".activity.SettingsActivity"
+        <activity
+            android:name=".activity.SettingsActivity"
             android:label="Settings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

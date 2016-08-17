@@ -33,7 +33,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     private GoogleMap mMap;
-    float zoomlevel = (float) 14.55;
+    private float zoomlevel = (float) 14.55;
     private FloatingActionButton button_hospital, button_venue, button_atm, button_hostel, button_miscellaneous;
     private FloatingActionsMenu fam;
     private final int LOCATION_REQUEST_CODE = 1;
@@ -204,7 +204,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     // contacts-related task you need to do.
                     mMap.setMyLocationEnabled(true);
                 } else {
-
+                    Toast.makeText(this, "Please permit the app to find your location!", Toast.LENGTH_LONG).show();
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                 }
@@ -234,8 +234,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(mapIntent);
-        }else{
-            Toast.makeText(this,"Oops! You don't have Google Maps app installed!",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Oops! You don't have Google Maps app installed!", Toast.LENGTH_LONG).show();
         }
 
     }
