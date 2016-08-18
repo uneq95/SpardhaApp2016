@@ -64,6 +64,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.spardha.ritesh.activity.ActivityHome" />
         </activity>
+        <activity
+            android:name=".activity.ContactActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="Contacts" />
     </application>
 
 </manifest>

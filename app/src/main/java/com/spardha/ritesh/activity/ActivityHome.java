@@ -85,7 +85,7 @@ public class ActivityHome extends AppCompatActivity {
                         startActivity(new Intent(ActivityHome.this, MapsActivity.class));
                         return true;
                     case R.id.item_contacts:
-                        startActivity(new Intent(ActivityHome.this,ContactActivity.class));
+                        startActivity(new Intent(ActivityHome.this, ContactActivity.class));
                         return true;
                     case R.id.item_settings:
                         startActivity(new Intent(ActivityHome.this, SettingsActivity.class));
@@ -97,7 +97,6 @@ public class ActivityHome extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Spam Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     default:
-                        Toast.makeText(getApplicationContext(), "Somethings Wrong", Toast.LENGTH_SHORT).show();
                         return true;
 
                 }

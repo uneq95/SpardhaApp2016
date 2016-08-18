@@ -33,10 +33,10 @@ import java.util.ArrayList;
  */
 public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.ViewHolder> {
 
-    Context context;
-    RequestQueue requestQueue;
+    private Context context;
+    private RequestQueue requestQueue;
     private static final String TAG = "AdapterRVEventList";
-    ArrayList<SportEvent> availableSportsList;
+    private ArrayList<SportEvent> availableSportsList;
 
     public AdapterRVEventList(Context context, ArrayList<SportEvent> availableSportsList) {
         this.context = context;
@@ -103,12 +103,12 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
         return availableSportsList.size();
     }
 
-    public static final class ViewHolder extends RecyclerView.ViewHolder {
+    static final class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvSportName;
         ImageView ivSportIcon;
         CardView cardView;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             tvSportName = (TextView) itemView.findViewById(R.id.tvSportName);
             ivSportIcon = (ImageView) itemView.findViewById(R.id.ivSportsIcon);
@@ -122,7 +122,7 @@ public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.
         Context context;
         View sharedView;
 
-        public EventOnClickListener(String sportName, Context context, View sharedView) {
+        EventOnClickListener(String sportName, Context context, View sharedView) {
             this.context = context;
             this.sportName = sportName.toLowerCase();
             this.sharedView = sharedView;
