@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="8dp"
+        android:id="@+id/downloadCard"
+        card:cardBackgroundColor="@color/rule_layout_color">
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/rule_layout_color">
+
+            <ImageView
+                android:id="@+id/ibDownloadRules"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/rule_layout_color"
+                android:src="@drawable/ic_cloud_download_white_36dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rule_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_below="@+id/ibDownloadRules"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:id="@+id/textView2"
+                android:layout_marginTop="16dp" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 </LinearLayout>

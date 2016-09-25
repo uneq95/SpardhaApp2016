@@ -19,4 +19,6 @@
     <color name="blue_semi_transparent">#805677fc</color>
     <color name="blue_semi_transparent_pressed">#80738ffe</color>
     <color name="ColorPrimary">#4CAF50</color>
+
+    <color name="rule_layout_color">#424242</color>
 </resources>

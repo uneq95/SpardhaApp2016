@@ -24,5 +24,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_maps2">Map</string>
 
+    <string name="rule_text">RULE BOOK</string>
+
 
 </resources>

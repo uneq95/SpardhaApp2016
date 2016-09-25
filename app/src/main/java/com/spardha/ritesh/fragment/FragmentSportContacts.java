@@ -21,6 +21,7 @@ import com.spardha.ritesh.R;
 import com.spardha.ritesh.adapter.AdapterSportContacts;
 import com.spardha.ritesh.models.Contact;
 import com.spardha.ritesh.models.Sport;
+import com.spardha.ritesh.utils.Constants;
 import com.spardha.ritesh.utils.ItemOffsetDecoration;
 
 import java.util.ArrayList;
@@ -30,10 +31,7 @@ import java.util.ArrayList;
  */
 public class FragmentSportContacts extends Fragment {
 
-    RecyclerView recyclerView;
-    AdapterSportContacts adapter;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference dbRef;
+    private RecyclerView recyclerView;
 
     @Nullable
     @Override
@@ -47,10 +45,10 @@ public class FragmentSportContacts extends Fragment {
         recyclerView.addItemDecoration(itemDecoration);
         Bundle bundle = this.getArguments();
 
-        String SPORTS_NAME = bundle.getString("sport_name");
+        String SPORTS_NAME = bundle.getString(Constants.INTENT_STRING_SPORT_NAME);
         //String SPORTS_NAME ="cricket";
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        dbRef = firebaseDatabase.getReference(SPORTS_NAME);
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference dbRef = firebaseDatabase.getReference(SPORTS_NAME);
         final ValueEventListener sportsDataListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -85,14 +83,8 @@ public class FragmentSportContacts extends Fragment {
         return superView;
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
     private void setRecyclerView(ArrayList<Contact> contacts) {
-        adapter = new AdapterSportContacts(contacts, getContext());
+        AdapterSportContacts adapter = new AdapterSportContacts(contacts, getContext());
         recyclerView.setAdapter(adapter);
     }
 }

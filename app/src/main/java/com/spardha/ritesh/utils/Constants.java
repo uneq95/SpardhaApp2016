@@ -27,7 +27,15 @@ public class Constants {
     public static final String[] TAB_HOME_TITLES = {"UPDATES", "EVENTS", "INFORMALS", "PHOTO WALL", "VIDEO WALL", "TESTIMONIALS"};
 
     /*Constants for AdapterViewPagerSports*/
-    public static final String[] TAB_SPORTS_TITLES = {"UPDATES", "FIXTURES", "RESULTS", "RULES", "CONTACTS", "HALL OF FAME"};
+    public static final String[] TAB_SPORTS_TITLES = {"LIVE", "FIXTURES", "RESULTS", "RULES", "CONTACTS", "HALL OF FAME"};
 
 
+    /*Constants for intent strings*/
+    public static final String INTENT_STRING_SPORT_NAME="sport_name";
+    /*Constants for Match*/
+    public enum MATCH_STATUS {
+        PENDING, ONGOING, OVER
+    }
+
+    ;
 }
