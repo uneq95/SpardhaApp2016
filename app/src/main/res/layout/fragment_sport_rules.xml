@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@color/rule_layout_color"
-                android:src="@drawable/ic_cloud_download_white_36dp"
+                android:src="@drawable/ic_book_white_48dp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
 

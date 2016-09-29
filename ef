@@ -1,0 +1,179 @@
+[33mcommit e56df69cf1f411a3626b3355eca4ef7fbd450c14[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Mon Sep 26 01:40:49 2016 +0530
+
+    rule book added
+
+[33mcommit 93ab34bfdab79d2cfab9fb4a25a4c6ce20ef0b8f[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Thu Aug 18 14:27:58 2016 +0530
+
+    spardha contacts activity working
+
+[33mcommit 47c3ed62bd257afb679860a1cf22fb9aec054caa[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Wed Aug 17 17:51:41 2016 +0530
+
+    spardha contacts activity added
+
+[33mcommit 076abda34119b2642238a6261db25cc1f1208a98[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Wed Aug 17 02:17:14 2016 +0530
+
+    settings activity added and unnecessary files deleted
+
+[33mcommit 89306b4056dacaaf063deb579529e254264af0ef[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Aug 16 06:06:09 2016 +0530
+
+    maps and navigation almost complete, needs polishing
+
+[33mcommit 68cf7180fb1cbe7ae60e94f826f5159b1db3ede4[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Aug 2 19:43:32 2016 +0530
+
+    maps activity added
+
+[33mcommit cd5b8000f1dca702c84387ddeee22ebc8ca0c941[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Aug 2 18:00:47 2016 +0530
+
+    drawables added
+
+[33mcommit 4f92b70e66c6e165716f11b23bf5933ad17856b0[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Aug 2 17:29:27 2016 +0530
+
+    navigation view added, touch action remaining
+
+[33mcommit 2d25f4296d62c33f6fcd93892f95a71f22f12639[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Aug 2 15:03:37 2016 +0530
+
+    contact call icon changed
+
+[33mcommit caa6bd39674abd4b81c2ce6559ac86ca3dfc8be0[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Aug 2 13:36:01 2016 +0530
+
+    code reformat
+
+[33mcommit 76b0032a5c5232538d2ecd4873b34a2e10b29159[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Aug 2 13:04:25 2016 +0530
+
+    sports contacts list displayed
+
+[33mcommit ac37ddd6b22ee0bdf679f49a61a8579282fc7290[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Mon Jul 11 03:21:50 2016 +0530
+
+    testimonial image loading optimised
+
+[33mcommit bd966eddd806c78a5ddd29909cb59de9367637cb[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Mon Jul 11 03:13:15 2016 +0530
+
+    testimonials added
+
+[33mcommit 66702b76f0dbb35fcc03a1c864c0977557881315[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Thu Jul 7 23:54:02 2016 +0530
+
+    youtube video activity done
+
+[33mcommit 23ea338b0094e4704e4f8b8fb4eae49327eae5bc[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Thu Jul 7 19:14:24 2016 +0530
+
+    removed picasso library
+
+[33mcommit 11fd5b2ffa509e528f604446e6e748890aa9cbba[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Thu Jul 7 19:07:41 2016 +0530
+
+    unnecessary resources removed
+
+[33mcommit 61b35f9adede7c3c77d0701acf2e965b55d67bcf[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Thu Jul 7 18:49:01 2016 +0530
+
+    image sharing transition added for API 21
+
+[33mcommit 07227adcab64cbe35dbd0c3a5da7b7b0c52405ba[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Thu Jul 7 15:08:30 2016 +0530
+
+    event list scrolling is now smooth
+
+[33mcommit 1770c347b682e6028a6fba3c1b1d693387fae685[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Thu Jul 7 14:05:08 2016 +0530
+
+    files renamed and event images saved to internal storage and loaded from storage
+
+[33mcommit 04ef06d207eb1594f0bfa31c84146bd712745c37[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Jul 5 17:28:10 2016 +0530
+
+    code optimized
+
+[33mcommit 818282bd6ae6f9991238dbe366c9f8e485347ddc[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Jul 5 15:42:33 2016 +0530
+
+    unnecessary imaged deleted and sports grid item layout modified
+
+[33mcommit 2e9dcd43e0e721dc96306daa48e2c45c8d500150[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Tue Jul 5 14:40:40 2016 +0530
+
+    video wall added
+
+[33mcommit d3b49f331f2bd30aeacb2c93231e5e0da87f86e3[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Mon Jul 4 22:11:58 2016 +0530
+
+    code cleanup
+
+[33mcommit 2e9f499abda2a44d8174ccf86a5cb4ec158ece9c[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Mon Jul 4 14:04:36 2016 +0530
+
+    code clean up
+
+[33mcommit 53387419e97f816faffcdb90615f65f2038a3d44[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Mon Jul 4 12:59:50 2016 +0530
+
+    sports loaded in ActivityHome
+
+[33mcommit ffb79537c21260353ee53999219bbf37285a39cd[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Sat Jun 4 15:55:16 2016 +0530
+
+    sports contacts list extracted
+
+[33mcommit ea12ef140354ac5b359d41b86c50ad779ac61824[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Sat Jun 4 14:51:49 2016 +0530
+
+    persistence enabled for SportsActivity firebase db
+
+[33mcommit 6ccdbd04ba988d1b00fdaaf0849a123051d51963[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Sat Jun 4 14:40:25 2016 +0530
+
+    fragment for hall of fame working
+
+[33mcommit 5d6ed62b97a859d9c1ce218d4c61633f3d4853c2[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Fri Jun 3 18:57:10 2016 +0530
+
+    fragment layouts created
+
+[33mcommit c54195f4f3322269f016dddc0f6bd997c8cecf3a[m
+Author: Ritesh Kumar <uneq95@gmail.com>
+Date:   Fri Jun 3 17:18:53 2016 +0530
+
+    repo initialised

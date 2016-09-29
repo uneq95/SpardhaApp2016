@@ -17,25 +17,25 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.spardha.ritesh.R;
-import com.spardha.ritesh.adapter.AdapterRVEventList;
-import com.spardha.ritesh.models.SportEvent;
+import com.spardha.ritesh.adapter.AdapterRVInformalsList;
+import com.spardha.ritesh.models.Informals;
 import com.spardha.ritesh.utils.ItemOffsetDecoration;
 
 import java.util.ArrayList;
 
 /**
- * Created by ritesh on 6/30/16.
+ * Created by ritesh on 9/30/16.
  */
-public class FragmentEventGrid extends Fragment {
 
-    private ArrayList<SportEvent> availableSportsList;
+public class FragmentEventInformals extends Fragment {
+
+    private ArrayList<Informals> informalsList;
     private RecyclerView recyclerView;
-
-    //static boolean calledAlready = false;
+    String TAG="informals fragment ";
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View superView = inflater.inflate(R.layout.fragment_events_grid, container, false);
+        View superView = inflater.inflate(R.layout.fragment_events_grid,container,false);
         recyclerView = (RecyclerView) superView.findViewById(R.id.rvEventGrid);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1, LinearLayoutManager.VERTICAL, false);
 
@@ -44,33 +44,28 @@ public class FragmentEventGrid extends Fragment {
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.grid_spacing);
         recyclerView.addItemDecoration(itemDecoration);
         return superView;
-
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*if (!calledAlready)
-        {
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-            calledAlready = true;
-        }*/
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference dbRef = firebaseDatabase.getReference("sport_list");
+        DatabaseReference dbRef = firebaseDatabase.getReference("informals");
+
         final ValueEventListener availableEventsListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Iterable<DataSnapshot> eventsChildren = dataSnapshot.getChildren();
-                availableSportsList = new ArrayList<>();
-                for (DataSnapshot sportEvent : eventsChildren
+                informalsList = new ArrayList<>();
+                for (DataSnapshot event : eventsChildren
                         ) {
 
-                    SportEvent se = sportEvent.getValue(SportEvent.class);
-                    Log.d("contact:: ", se.sport_name + " " + se.header_url);
-                    availableSportsList.add(se);
+                    Informals informalEvent = event.getValue(Informals.class);
+                    Log.d(TAG,"name: "+informalEvent.name+" link: "+informalEvent.img_link);
+                    informalsList.add(informalEvent);
                 }
-                updateEvents(availableSportsList);
+                updateEvents(informalsList);
 
             }
 
@@ -80,12 +75,11 @@ public class FragmentEventGrid extends Fragment {
             }
         };
         dbRef.addValueEventListener(availableEventsListener);
-
     }
 
-    private void updateEvents(ArrayList<SportEvent> availableSportsList) {
-        AdapterRVEventList adapterRVEventGrid = new AdapterRVEventList(getActivity(), availableSportsList);
-        recyclerView.setAdapter(adapterRVEventGrid);
+    private void updateEvents(ArrayList<Informals> events){
+        AdapterRVInformalsList adapterRVInformalsList = new AdapterRVInformalsList(getActivity(), events);
+        recyclerView.setAdapter(adapterRVInformalsList);
+        Log.e(TAG,"setting rv");
     }
-
 }
