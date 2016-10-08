@@ -31,12 +31,14 @@ public class Constants {
 
 
     /*Constants for intent strings*/
-    public static final String INTENT_STRING_SPORT_NAME="sport_name";
+    public static final String INTENT_STRING_SPORT_NAME = "sport_name";
+
     /*Constants for Match*/
     public enum MATCH_STATUS {
         PENDING, ONGOING, OVER
     }
+
     /*Constants for Informals*/
-    public static final String INFORMAL_DOC_LINK ="https://docs.google.com/forms/d/e/1FAIpQLSepPhM468TMKJMj1oAYh_8affdYPfmtX9wqU9LzzWwJ7xzdIA/viewform?c=0&w=1&usp=send_form";
+    public static final String INFORMAL_DOC_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSepPhM468TMKJMj1oAYh_8affdYPfmtX9wqU9LzzWwJ7xzdIA/viewform?c=0&w=1&usp=send_form";
     ;
 }

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class FragmentTestimonials extends Fragment {
 
     View superView;
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
 
     @Nullable
     @Override

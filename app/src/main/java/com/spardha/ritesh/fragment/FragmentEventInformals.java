@@ -31,11 +31,12 @@ public class FragmentEventInformals extends Fragment {
 
     private ArrayList<Informals> informalsList;
     private RecyclerView recyclerView;
-    String TAG="informals fragment ";
+    String TAG = "informals fragment ";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View superView = inflater.inflate(R.layout.fragment_events_grid,container,false);
+        View superView = inflater.inflate(R.layout.fragment_events_grid, container, false);
         recyclerView = (RecyclerView) superView.findViewById(R.id.rvEventGrid);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1, LinearLayoutManager.VERTICAL, false);
 
@@ -62,7 +63,7 @@ public class FragmentEventInformals extends Fragment {
                         ) {
 
                     Informals informalEvent = event.getValue(Informals.class);
-                    Log.d(TAG,"name: "+informalEvent.name+" link: "+informalEvent.img_link);
+                    Log.d(TAG, "name: " + informalEvent.name + " link: " + informalEvent.img_link);
                     informalsList.add(informalEvent);
                 }
                 updateEvents(informalsList);
@@ -77,9 +78,9 @@ public class FragmentEventInformals extends Fragment {
         dbRef.addValueEventListener(availableEventsListener);
     }
 
-    private void updateEvents(ArrayList<Informals> events){
+    private void updateEvents(ArrayList<Informals> events) {
         AdapterRVInformalsList adapterRVInformalsList = new AdapterRVInformalsList(getActivity(), events);
         recyclerView.setAdapter(adapterRVInformalsList);
-        Log.e(TAG,"setting rv");
+        Log.e(TAG, "setting rv");
     }
 }

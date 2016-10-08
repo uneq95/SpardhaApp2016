@@ -26,9 +26,9 @@ import java.util.ArrayList;
  */
 public class AdapterRVTestimonials extends RecyclerView.Adapter<AdapterRVTestimonials.ViewHolder> {
 
-    Context context;
-    ArrayList<Testimonial> testimonials;
-    RequestQueue requestQueue;
+    private Context context;
+    private ArrayList<Testimonial> testimonials;
+    private RequestQueue requestQueue;
     private final String TAG = "AdapterRVTestimonials";
 
     public AdapterRVTestimonials(Context context, ArrayList<Testimonial> testimonials) {
@@ -96,11 +96,11 @@ public class AdapterRVTestimonials extends RecyclerView.Adapter<AdapterRVTestimo
         return testimonials.size();
     }
 
-    public static final class ViewHolder extends RecyclerView.ViewHolder {
+    static final class ViewHolder extends RecyclerView.ViewHolder {
         RoundedImageView roundedImageView;
         TextView tvGuestName, tvGuestJob, tvWords;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             tvGuestName = (TextView) itemView.findViewById(R.id.tvTestiCeleb);
             tvGuestJob = (TextView) itemView.findViewById(R.id.tvTestiCelebDesg);

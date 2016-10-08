@@ -51,7 +51,8 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
                 return fragmentSportFixtures;
             case 2:
                 return fragmentSportResults;
-            case 3:bundle = new Bundle();
+            case 3:
+                bundle = new Bundle();
                 bundle.putString(Constants.INTENT_STRING_SPORT_NAME, SPORTS_NAME);
                 fragmentSportRules.setArguments(bundle);
                 return fragmentSportRules;

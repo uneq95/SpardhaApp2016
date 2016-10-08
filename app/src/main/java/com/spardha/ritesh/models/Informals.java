@@ -16,9 +16,10 @@ public class Informals {
     /*parameters for local optimisation*/
     private Bitmap headerBitmap = null;
 
-    public Informals(){
+    public Informals() {
 
     }
+
     public void setLocalBitmap(Bitmap bitmap) {
         headerBitmap = bitmap;
     }

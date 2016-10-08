@@ -1,12 +1,9 @@
 package com.spardha.ritesh.adapter;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,9 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.spardha.ritesh.R;
-import com.spardha.ritesh.activity.ActivitySports;
 import com.spardha.ritesh.models.Informals;
-import com.spardha.ritesh.models.SportEvent;
 import com.spardha.ritesh.utils.AppSingleton;
 import com.spardha.ritesh.utils.Constants;
 import com.spardha.ritesh.utils.ImageSaver;
@@ -36,15 +31,17 @@ import java.util.ArrayList;
 
 public class AdapterRVInformalsList extends RecyclerView.Adapter<AdapterRVEventList.ViewHolder> {
 
-    private ArrayList<Informals>  informals;
+    private ArrayList<Informals> informals;
     private Context context;
     private RequestQueue requestQueue;
     private static final String TAG = "AdapterRVEventList";
-    public AdapterRVInformalsList(Context context, ArrayList<Informals> events){
-        this.informals=events;
-        this.context=context;
+
+    public AdapterRVInformalsList(Context context, ArrayList<Informals> events) {
+        this.informals = events;
+        this.context = context;
         requestQueue = AppSingleton.getInstance(context).getRequestQueue();
     }
+
     @Override
     public AdapterRVEventList.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_sports_grid_item_test, parent, false);
@@ -52,7 +49,7 @@ public class AdapterRVInformalsList extends RecyclerView.Adapter<AdapterRVEventL
     }
 
     @Override
-    public void onBindViewHolder(final AdapterRVEventList.ViewHolder holder,final int position) {
+    public void onBindViewHolder(final AdapterRVEventList.ViewHolder holder, final int position) {
 
         holder.tvSportName.setText(informals.get(position).name.toUpperCase());
 
@@ -109,6 +106,7 @@ public class AdapterRVInformalsList extends RecyclerView.Adapter<AdapterRVEventL
     public int getItemCount() {
         return informals.size();
     }
+
     static final class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvSportName;
         ImageView ivSportIcon;
