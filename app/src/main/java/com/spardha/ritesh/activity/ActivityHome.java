@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.firebase.database.FirebaseDatabase;
 import com.spardha.ritesh.R;
 import com.spardha.ritesh.adapter.AdapterViewPagerHome;
 
@@ -28,17 +27,15 @@ import com.spardha.ritesh.adapter.AdapterViewPagerHome;
  */
 public class ActivityHome extends AppCompatActivity {
 
-    AdapterViewPagerHome adapterViewPagerHome;
-    ViewPager viewPager;
-    TabLayout tabLayout;
     //static boolean calledAlready = true;
-    DrawerLayout drawerLayout;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         setContentView(R.layout.activity_home_test);
+
         /*if (!calledAlready) {
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             calledAlready = true;
@@ -128,10 +125,10 @@ public class ActivityHome extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
 
 
-        viewPager = (ViewPager) findViewById(R.id.htab_viewpager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.htab_viewpager);
         setupViewPager(viewPager);
 
-        tabLayout = (TabLayout) findViewById(R.id.htab_tabs);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.htab_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
 
@@ -158,7 +155,7 @@ public class ActivityHome extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        adapterViewPagerHome = new AdapterViewPagerHome(getSupportFragmentManager());
+        AdapterViewPagerHome adapterViewPagerHome = new AdapterViewPagerHome(getSupportFragmentManager());
         viewPager.setOffscreenPageLimit(6);
         //TODO remove this limit and handle memory issues
         viewPager.setAdapter(adapterViewPagerHome);

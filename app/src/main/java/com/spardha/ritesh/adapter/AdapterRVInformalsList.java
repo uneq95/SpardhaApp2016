@@ -29,7 +29,7 @@ import java.util.ArrayList;
  * Created by ritesh on 9/30/16.
  */
 
-public class AdapterRVInformalsList extends RecyclerView.Adapter<AdapterRVEventList.ViewHolder> {
+public class AdapterRVInformalsList extends RecyclerView.Adapter<AdapterRVInformalsList.ViewHolder> {
 
     private ArrayList<Informals> informals;
     private Context context;
@@ -43,13 +43,13 @@ public class AdapterRVInformalsList extends RecyclerView.Adapter<AdapterRVEventL
     }
 
     @Override
-    public AdapterRVEventList.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AdapterRVInformalsList.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_sports_grid_item_test, parent, false);
-        return new AdapterRVEventList.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final AdapterRVEventList.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final AdapterRVInformalsList.ViewHolder holder, final int position) {
 
         holder.tvSportName.setText(informals.get(position).name.toUpperCase());
 

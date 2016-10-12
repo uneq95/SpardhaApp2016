@@ -57,14 +57,13 @@ public class FragmentEventGrid extends Fragment {
         }*/
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference dbRef = firebaseDatabase.getReference("sport_list");
-        final ValueEventListener availableEventsListener = new ValueEventListener() {
+        ValueEventListener availableEventsListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Iterable<DataSnapshot> eventsChildren = dataSnapshot.getChildren();
                 availableSportsList = new ArrayList<>();
-                for (DataSnapshot sportEvent : eventsChildren
-                        ) {
+                for (DataSnapshot sportEvent : eventsChildren) {
 
                     SportEvent se = sportEvent.getValue(SportEvent.class);
                     Log.d("contact:: ", se.sport_name + " " + se.header_url);

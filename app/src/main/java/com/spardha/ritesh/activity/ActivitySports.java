@@ -37,7 +37,6 @@ public class ActivitySports extends AppCompatActivity {
 
     private String SPORTS_NAME;
     private DatabaseReference myRef;
-    private AdapterViewPagerSports sportsViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +90,7 @@ public class ActivitySports extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        sportsViewPagerAdapter = new AdapterViewPagerSports(getSupportFragmentManager(), SPORTS_NAME);
+        AdapterViewPagerSports sportsViewPagerAdapter = new AdapterViewPagerSports(getSupportFragmentManager(), SPORTS_NAME);
         //sportsViewPagerAdapter.
         viewPager.setOffscreenPageLimit(5);
         viewPager.setAdapter(sportsViewPagerAdapter);
