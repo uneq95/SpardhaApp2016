@@ -29,9 +29,9 @@ import java.util.ArrayList;
 
 public class FragmentEventInformals extends Fragment {
 
+    String TAG = "informals fragment ";
     private ArrayList<Informals> informalsList;
     private RecyclerView recyclerView;
-    String TAG = "informals fragment ";
 
     @Nullable
     @Override

@@ -31,10 +31,10 @@ import java.util.ArrayList;
 
 public class AdapterRVInformalsList extends RecyclerView.Adapter<AdapterRVInformalsList.ViewHolder> {
 
+    private static final String TAG = "AdapterRVEventList";
     private ArrayList<Informals> informals;
     private Context context;
     private RequestQueue requestQueue;
-    private static final String TAG = "AdapterRVEventList";
 
     public AdapterRVInformalsList(Context context, ArrayList<Informals> events) {
         this.informals = events;

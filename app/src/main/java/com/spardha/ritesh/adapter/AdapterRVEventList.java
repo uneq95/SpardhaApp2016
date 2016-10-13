@@ -33,9 +33,9 @@ import java.util.ArrayList;
  */
 public class AdapterRVEventList extends RecyclerView.Adapter<AdapterRVEventList.ViewHolder> {
 
+    private static final String TAG = "AdapterRVEventList";
     private Context context;
     private RequestQueue requestQueue;
-    private static final String TAG = "AdapterRVEventList";
     private ArrayList<SportEvent> availableSportsList;
 
     public AdapterRVEventList(Context context, ArrayList<SportEvent> availableSportsList) {

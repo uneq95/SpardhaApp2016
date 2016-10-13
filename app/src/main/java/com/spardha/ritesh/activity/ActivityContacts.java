@@ -28,11 +28,11 @@ import java.util.ArrayList;
 /**
  * Created by ritesh_kumar on 06-Aug-15.
  */
-public class ContactActivity extends AppCompatActivity {
+public class ActivityContacts extends AppCompatActivity {
 
+    private final int CALL_REQUEST_CODE = 2;
     private ArrayList<ContactListItem> contacts;
     private Context context;
-    private final int CALL_REQUEST_CODE = 2;
     private Intent callIntent;
 
     @Override

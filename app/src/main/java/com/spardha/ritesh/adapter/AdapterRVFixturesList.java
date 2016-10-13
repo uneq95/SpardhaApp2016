@@ -17,9 +17,9 @@ import java.util.ArrayList;
  */
 
 public class AdapterRVFixturesList extends RecyclerView.Adapter<AdapterRVFixturesList.ViewHolder> {
+    private static final String TAG = "AdapterRVFixturesList";
     private Context context;
     private ArrayList<Fixture> fixtures;
-    private static final String TAG = "AdapterRVFixturesList";
 
     public AdapterRVFixturesList(Context context, ArrayList<Fixture> fixtures) {
         this.context = context;

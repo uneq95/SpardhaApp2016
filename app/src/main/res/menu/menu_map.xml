@@ -4,8 +4,8 @@
     tools:context=".MainActivity">
     <item
         android:id="@+id/action_navigate"
-        android:title="Navigate"
+        android:icon="@drawable/ic_navigate"
         android:orderInCategory="100"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_navigate" />
+        android:title="Navigate"
+        app:showAsAction="always" />
 </menu>

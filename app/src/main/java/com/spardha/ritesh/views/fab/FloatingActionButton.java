@@ -39,16 +39,11 @@ public class FloatingActionButton extends ImageButton {
 
     public static final int SIZE_NORMAL = 0;
     public static final int SIZE_MINI = 1;
-
-    @Retention(RetentionPolicy.SOURCE)
-    @IntDef({SIZE_NORMAL, SIZE_MINI})
-    public @interface FAB_SIZE {
-    }
-
     int mColorNormal;
     int mColorPressed;
     int mColorDisabled;
     String mTitle;
+    boolean mStrokeVisible;
     @DrawableRes
     private int mIcon;
     private Drawable mIconDrawable;
@@ -58,8 +53,6 @@ public class FloatingActionButton extends ImageButton {
     private float mShadowRadius;
     private float mShadowOffset;
     private int mDrawableSize;
-    boolean mStrokeVisible;
-
     public FloatingActionButton(Context context) {
         this(context, null);
     }
@@ -101,6 +94,11 @@ public class FloatingActionButton extends ImageButton {
         mCircleSize = getDimension(mSize == SIZE_NORMAL ? R.dimen.fab_size_normal : R.dimen.fab_size_mini);
     }
 
+    @FAB_SIZE
+    public int getSize() {
+        return mSize;
+    }
+
     public void setSize(@FAB_SIZE int size) {
         if (size != SIZE_MINI && size != SIZE_NORMAL) {
             throw new IllegalArgumentException("Use @FAB_SIZE constants only!");
@@ -114,23 +112,10 @@ public class FloatingActionButton extends ImageButton {
         }
     }
 
-    @FAB_SIZE
-    public int getSize() {
-        return mSize;
-    }
-
     public void setIcon(@DrawableRes int icon) {
         if (mIcon != icon) {
             mIcon = icon;
             mIconDrawable = null;
-            updateBackground();
-        }
-    }
-
-    public void setIconDrawable(@NonNull Drawable iconDrawable) {
-        if (mIconDrawable != iconDrawable) {
-            mIcon = 0;
-            mIconDrawable = iconDrawable;
             updateBackground();
         }
     }
@@ -142,15 +127,15 @@ public class FloatingActionButton extends ImageButton {
         return mColorNormal;
     }
 
-    public void setColorNormalResId(@ColorRes int colorNormal) {
-        setColorNormal(getColor(colorNormal));
-    }
-
     public void setColorNormal(int color) {
         if (mColorNormal != color) {
             mColorNormal = color;
             updateBackground();
         }
+    }
+
+    public void setColorNormalResId(@ColorRes int colorNormal) {
+        setColorNormal(getColor(colorNormal));
     }
 
     /**
@@ -160,15 +145,15 @@ public class FloatingActionButton extends ImageButton {
         return mColorPressed;
     }
 
-    public void setColorPressedResId(@ColorRes int colorPressed) {
-        setColorPressed(getColor(colorPressed));
-    }
-
     public void setColorPressed(int color) {
         if (mColorPressed != color) {
             mColorPressed = color;
             updateBackground();
         }
+    }
+
+    public void setColorPressedResId(@ColorRes int colorPressed) {
+        setColorPressed(getColor(colorPressed));
     }
 
     /**
@@ -178,10 +163,6 @@ public class FloatingActionButton extends ImageButton {
         return mColorDisabled;
     }
 
-    public void setColorDisabledResId(@ColorRes int colorDisabled) {
-        setColorDisabled(getColor(colorDisabled));
-    }
-
     public void setColorDisabled(int color) {
         if (mColorDisabled != color) {
             mColorDisabled = color;
@@ -189,15 +170,19 @@ public class FloatingActionButton extends ImageButton {
         }
     }
 
+    public void setColorDisabledResId(@ColorRes int colorDisabled) {
+        setColorDisabled(getColor(colorDisabled));
+    }
+
+    public boolean isStrokeVisible() {
+        return mStrokeVisible;
+    }
+
     public void setStrokeVisible(boolean visible) {
         if (mStrokeVisible != visible) {
             mStrokeVisible = visible;
             updateBackground();
         }
-    }
-
-    public boolean isStrokeVisible() {
-        return mStrokeVisible;
     }
 
     int getColor(@ColorRes int id) {
@@ -208,20 +193,20 @@ public class FloatingActionButton extends ImageButton {
         return getResources().getDimension(id);
     }
 
-    public void setTitle(String title) {
-        mTitle = title;
-        TextView label = getLabelView();
-        if (label != null) {
-            label.setText(title);
-        }
-    }
-
     TextView getLabelView() {
         return (TextView) getTag(R.id.fab_label);
     }
 
     public String getTitle() {
         return mTitle;
+    }
+
+    public void setTitle(String title) {
+        mTitle = title;
+        TextView label = getLabelView();
+        if (label != null) {
+            label.setText(title);
+        }
     }
 
     @Override
@@ -279,6 +264,14 @@ public class FloatingActionButton extends ImageButton {
         }
     }
 
+    public void setIconDrawable(@NonNull Drawable iconDrawable) {
+        if (mIconDrawable != iconDrawable) {
+            mIcon = 0;
+            mIconDrawable = iconDrawable;
+            updateBackground();
+        }
+    }
+
     private StateListDrawable createFillDrawable(float strokeWidth) {
         StateListDrawable drawable = new StateListDrawable();
         drawable.addState(new int[]{-android.R.attr.state_enabled}, createCircleDrawable(mColorDisabled, strokeWidth));
@@ -310,23 +303,6 @@ public class FloatingActionButton extends ImageButton {
         drawable.setLayerInset(1, halfStrokeWidth, halfStrokeWidth, halfStrokeWidth, halfStrokeWidth);
 
         return drawable;
-    }
-
-    private static class TranslucentLayerDrawable extends LayerDrawable {
-        private final int mAlpha;
-
-        public TranslucentLayerDrawable(int alpha, Drawable... layers) {
-            super(layers);
-            mAlpha = alpha;
-        }
-
-        @Override
-        public void draw(Canvas canvas) {
-            Rect bounds = getBounds();
-            canvas.saveLayerAlpha(bounds.left, bounds.top, bounds.right, bounds.bottom, mAlpha, Canvas.ALL_SAVE_FLAG);
-            super.draw(canvas);
-            canvas.restore();
-        }
     }
 
     private Drawable createOuterStrokeDrawable(float strokeWidth) {
@@ -428,5 +404,27 @@ public class FloatingActionButton extends ImageButton {
         }
 
         super.setVisibility(visibility);
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    @IntDef({SIZE_NORMAL, SIZE_MINI})
+    public @interface FAB_SIZE {
+    }
+
+    private static class TranslucentLayerDrawable extends LayerDrawable {
+        private final int mAlpha;
+
+        public TranslucentLayerDrawable(int alpha, Drawable... layers) {
+            super(layers);
+            mAlpha = alpha;
+        }
+
+        @Override
+        public void draw(Canvas canvas) {
+            Rect bounds = getBounds();
+            canvas.saveLayerAlpha(bounds.left, bounds.top, bounds.right, bounds.bottom, mAlpha, Canvas.ALL_SAVE_FLAG);
+            super.draw(canvas);
+            canvas.restore();
+        }
     }
 }

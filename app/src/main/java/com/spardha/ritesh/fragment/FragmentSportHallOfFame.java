@@ -15,9 +15,9 @@ import com.spardha.ritesh.R;
  */
 public class FragmentSportHallOfFame extends Fragment {
 
-    public TextView tvWinner, tvRunnerUp;
     public static final String TAG = "hall_of_fame";
     public static String winnerName = "winner", runnerUpName = "runnerup";
+    public TextView tvWinner, tvRunnerUp;
 
     @Nullable
     @Override

@@ -68,12 +68,12 @@ public class ContactListItem {
         return picLink;
     }
 
-    public void setLocalBitmap(Bitmap bitmap) {
-        contactImgBitmap = bitmap;
-    }
-
     public Bitmap getLocalBitmap() {
         return contactImgBitmap;
+    }
+
+    public void setLocalBitmap(Bitmap bitmap) {
+        contactImgBitmap = bitmap;
     }
 
     public boolean isHeaderBitmapAvailable() {

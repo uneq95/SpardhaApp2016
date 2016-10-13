@@ -44,21 +44,20 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Bundle bundle;
+        bundle = new Bundle();
+        bundle.putString(Constants.INTENT_STRING_SPORT_NAME, SPORTS_NAME);
         switch (position) {
             case 0:
                 return fragmentSportUpdates;
             case 1:
                 return fragmentSportFixtures;
             case 2:
+                fragmentSportFixtures.setArguments(bundle);
                 return fragmentSportResults;
             case 3:
-                bundle = new Bundle();
-                bundle.putString(Constants.INTENT_STRING_SPORT_NAME, SPORTS_NAME);
                 fragmentSportRules.setArguments(bundle);
                 return fragmentSportRules;
             case 4:
-                bundle = new Bundle();
-                bundle.putString(Constants.INTENT_STRING_SPORT_NAME, SPORTS_NAME);
                 fragmentSportContacts.setArguments(bundle);
                 return fragmentSportContacts;
             case 5:

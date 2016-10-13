@@ -26,5 +26,7 @@
 
     <string name="rule_text">RULE BOOK</string>
 
+    <string name="fixture_unavailable">Fixtures are currently unavailable!</string>
+    <string name="results_unavailable">Results are currently unavailable!</string>
 
 </resources>

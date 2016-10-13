@@ -42,7 +42,6 @@ public class FragmentSportRules extends Fragment {
                 DataSnapshot contactSnapshot = dataSnapshot.child("rules");
                 final String url = contactSnapshot.getValue(String.class);
 
-
                 downloadCard.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

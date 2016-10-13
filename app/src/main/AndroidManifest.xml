@@ -46,9 +46,9 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".activity.MapsActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_activity_maps">
+            android:name=".activity.ActivityMaps"
+            android:label="@string/title_activity_maps"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.spardha.ritesh.activity.ActivityHome" />
@@ -61,9 +61,9 @@
                 android:value="com.spardha.ritesh.activity.ActivityHome" />
         </activity>
         <activity
-            android:name=".activity.ContactActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="Contacts" />
+            android:name=".activity.ActivityContacts"
+            android:label="Contacts"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- [START firebase_service] -->
         <service android:name=".fcm.MyFirebaseMessagingService">
@@ -79,7 +79,7 @@
             </intent-filter>
         </service>
         <!-- [END firebase_iid_service] -->
-        <service android:name=".fcm.DataSyncService"></service>
+        <service android:name=".fcm.DataSyncService"/>
 
         <activity android:name=".activity.ActivitySplashScreen">
             <intent-filter>

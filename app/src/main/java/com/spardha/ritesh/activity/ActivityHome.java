@@ -79,10 +79,10 @@ public class ActivityHome extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Stared Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.item_map:
-                        startActivity(new Intent(ActivityHome.this, MapsActivity.class));
+                        startActivity(new Intent(ActivityHome.this, ActivityMaps.class));
                         return true;
                     case R.id.item_contacts:
-                        startActivity(new Intent(ActivityHome.this, ContactActivity.class));
+                        startActivity(new Intent(ActivityHome.this, ActivityContacts.class));
                         return true;
                     case R.id.item_settings:
                         startActivity(new Intent(ActivityHome.this, SettingsActivity.class));

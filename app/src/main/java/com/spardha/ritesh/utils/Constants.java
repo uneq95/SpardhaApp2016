@@ -5,6 +5,18 @@ package com.spardha.ritesh.utils;
  */
 public class Constants {
 
+    /*Constants for Youtube Adapter and ActivityYoutubePlayer*/
+    public static final String EXTRA_VIDEO_ID = "YOUTUBE_VIDEO_ID";
+    /*Constants for AdapterEventsGrid*/
+    public static final String EXTRA_SPORT_NAME = "SPORT_NAME";
+    /*Constants for AdapterViewPagerHome*/
+    public static final String[] TAB_HOME_TITLES = {"UPDATES", "EVENTS", "INFORMALS", "PHOTO WALL", "VIDEO WALL", "TESTIMONIALS"};
+    /*Constants for AdapterViewPagerSports*/
+    public static final String[] TAB_SPORTS_TITLES = {"LIVE", "FIXTURES", "RESULTS", "RULES", "CONTACTS", "HALL OF FAME"};
+    /*Constants for intent strings*/
+    public static final String INTENT_STRING_SPORT_NAME = "sport_name";
+    /*Constants for Informals*/
+    public static final String INFORMAL_DOC_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSepPhM468TMKJMj1oAYh_8affdYPfmtX9wqU9LzzWwJ7xzdIA/viewform?c=0&w=1&usp=send_form";
     /*Constants for JSONParser*/
     private static final String GOOGLE_DEV_KEY = "AIzaSyDiNPwcPs6q8ctybTymfAQl7bG8dZUaS04";
     private static final String SPARDHA_YOUTUBE_CHANNEL_ID = "UCA8-Lv8lTufkY507CUonbDQ";
@@ -17,28 +29,9 @@ public class Constants {
         return GOOGLE_DEV_KEY;
     }
 
-    /*Constants for Youtube Adapter and ActivityYoutubePlayer*/
-    public static final String EXTRA_VIDEO_ID = "YOUTUBE_VIDEO_ID";
-
-    /*Constants for AdapterEventsGrid*/
-    public static final String EXTRA_SPORT_NAME = "SPORT_NAME";
-
-    /*Constants for AdapterViewPagerHome*/
-    public static final String[] TAB_HOME_TITLES = {"UPDATES", "EVENTS", "INFORMALS", "PHOTO WALL", "VIDEO WALL", "TESTIMONIALS"};
-
-    /*Constants for AdapterViewPagerSports*/
-    public static final String[] TAB_SPORTS_TITLES = {"LIVE", "FIXTURES", "RESULTS", "RULES", "CONTACTS", "HALL OF FAME"};
-
-
-    /*Constants for intent strings*/
-    public static final String INTENT_STRING_SPORT_NAME = "sport_name";
-
     /*Constants for Match*/
     public enum MATCH_STATUS {
         PENDING, ONGOING, OVER
     }
-
-    /*Constants for Informals*/
-    public static final String INFORMAL_DOC_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSepPhM468TMKJMj1oAYh_8affdYPfmtX9wqU9LzzWwJ7xzdIA/viewform?c=0&w=1&usp=send_form";
     ;
 }

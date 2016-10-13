@@ -20,12 +20,12 @@ public class Informals {
 
     }
 
-    public void setLocalBitmap(Bitmap bitmap) {
-        headerBitmap = bitmap;
-    }
-
     public Bitmap getLocalBitmap() {
         return headerBitmap;
+    }
+
+    public void setLocalBitmap(Bitmap bitmap) {
+        headerBitmap = bitmap;
     }
 
     public boolean isHeaderBitmapAvailable() {

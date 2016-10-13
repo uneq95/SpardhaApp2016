@@ -22,12 +22,12 @@ public class Testimonial {
 
     }
 
-    public void setLocalBitmap(Bitmap bitmap) {
-        imageBitmap = bitmap;
-    }
-
     public Bitmap getLocalBitmap() {
         return imageBitmap;
+    }
+
+    public void setLocalBitmap(Bitmap bitmap) {
+        imageBitmap = bitmap;
     }
 
     public boolean isHeaderBitmapAvailable() {

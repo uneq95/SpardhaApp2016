@@ -28,12 +28,12 @@ public class SportEvent implements Serializable {
         this.sport_name = sport_name;
     }
 
-    public void setLocalBitmap(Bitmap bitmap) {
-        headerBitmap = bitmap;
-    }
-
     public Bitmap getLocalBitmap() {
         return headerBitmap;
+    }
+
+    public void setLocalBitmap(Bitmap bitmap) {
+        headerBitmap = bitmap;
     }
 
     public boolean isHeaderBitmapAvailable() {

@@ -7,6 +7,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
  */
 @IgnoreExtraProperties
 public class Fixture {
+
     public String team1;
     public String team2;
     public String sport;

@@ -29,34 +29,29 @@ import com.spardha.ritesh.R;
 import com.spardha.ritesh.views.fab.FloatingActionButton;
 import com.spardha.ritesh.views.fab.FloatingActionsMenu;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.InfoWindowAdapter, GoogleMap.OnInfoWindowClickListener {
+public class ActivityMaps extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.InfoWindowAdapter, GoogleMap.OnInfoWindowClickListener {
 
 
+    private final int LOCATION_REQUEST_CODE = 1;
+    private final String[] HOSTEL_NAME = {"Visweshwarayya", "SN Bose", "Aryabhatta", "Ramanujan", "Dhanrajgiri", "Morvi", "CV Raman", "Rajputana", "Limbdi", "SC De", "Vivekanand", "Vishwakarma", "GSMC"};
+    private final double[] HOSTEL_LATITUDE = {25.262834, 25.263125, 25.264012, 25.263124, 25.263912, 25.265025, 25.265865, 25.262418, 25.261312, 25.260184, 25.259272, 25.257690, 25.260601};
+    private final double[] HOSTEL_LONGITUDE = {82.983902, 82.983886, 82.984352, 82.984826, 82.986277, 82.986382, 82.986481, 82.986349, 82.986524, 82.986859, 82.987251, 82.985695, 82.983670};
+    private final String[] ATM_NAME = {"SBI Hyderabad Gate", "Axis Bank Hyderabad Gate", "SBI-BHU", "SBI VT", "Bank of Baroda"};
+    private final double[] ATM_LATITUDE = {25.261717, 25.261593, 25.263738, 25.265331, 25.265386};
+    private final double[] ATM_LONGITUDE = {82.981647, 82.981642, 82.994762, 82.989635, 82.989643};
+    private final String[] VENUE_NAME = {"IIT-BHU Gymkhana", "Rajputana Ground", "Amphitheatre", "Arun Dream Village(ADV)"};
+    private final double[] VENUE_LATITUDE = {25.259176, 25.262499, 25.265730, 25.259040};
+    private final double[] VENUE_LONGITUDE = {82.989229, 82.986691, 82.995231, 82989331};
+    private final String[] HOSPITAL_NAME = {"Sir Sunderlal Hospital"};
+    private final double[] HOSPITAL_LATITUDE = {25.275727};
+    private final double[] HOSPITAL_LONGITUDE = {83.000570};
+    private final String[] OTHER_NAMES = {"DG Corner", "Limbdi Corner", "Vishvanath Temple", "Swatantrata Bhawan"};
+    private final double[] OTHER_LATITUDE = {25.263023, 25.260777, 25.265676, 25.260636};
+    private final double[] OTHER_LONGITUDE = {82.986498, 82.986884, 82.989475, 82.993676};
     private GoogleMap mMap;
     private float zoomlevel = (float) 14.55;
     private FloatingActionButton button_hospital, button_venue, button_atm, button_hostel, button_miscellaneous;
     private FloatingActionsMenu fam;
-    private final int LOCATION_REQUEST_CODE = 1;
-
-    private final String[] HOSTEL_NAME = {"Visweshwarayya", "SN Bose", "Aryabhatta", "Ramanujan", "Dhanrajgiri", "Morvi", "CV Raman", "Rajputana", "Limbdi", "SC De", "Vivekanand", "Vishwakarma", "GSMC"};
-    private final double[] HOSTEL_LATITUDE = {25.262834, 25.263125, 25.264012, 25.263124, 25.263912, 25.265025, 25.265865, 25.262418, 25.261312, 25.260184, 25.259272, 25.257690, 25.260601};
-    private final double[] HOSTEL_LONGITUDE = {82.983902, 82.983886, 82.984352, 82.984826, 82.986277, 82.986382, 82.986481, 82.986349, 82.986524, 82.986859, 82.987251, 82.985695, 82.983670};
-
-    private final String[] ATM_NAME = {"SBI Hyderabad Gate", "Axis Bank Hyderabad Gate", "SBI-BHU", "SBI VT", "Bank of Baroda"};
-    private final double[] ATM_LATITUDE = {25.261717, 25.261593, 25.263738, 25.265331, 25.265386};
-    private final double[] ATM_LONGITUDE = {82.981647, 82.981642, 82.994762, 82.989635, 82.989643};
-
-    private final String[] VENUE_NAME = {"IIT-BHU Gymkhana", "Rajputana Ground", "Amphitheatre", "Arun Dream Village(ADV)"};
-    private final double[] VENUE_LATITUDE = {25.259176, 25.262499, 25.265730, 25.259040};
-    private final double[] VENUE_LONGITUDE = {82.989229, 82.986691, 82.995231, 82989331};
-
-    private final String[] HOSPITAL_NAME = {"Sir Sunderlal Hospital"};
-    private final double[] HOSPITAL_LATITUDE = {25.275727};
-    private final double[] HOSPITAL_LONGITUDE = {83.000570};
-
-    private final String[] OTHER_NAMES = {"DG Corner", "Limbdi Corner", "Vishvanath Temple", "Swatantrata Bhawan"};
-    private final double[] OTHER_LATITUDE = {25.263023, 25.260777, 25.265676, 25.260636};
-    private final double[] OTHER_LONGITUDE = {82.986498, 82.986884, 82.989475, 82.993676};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +105,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //noinspection SimplifiableIfStatement
         /*if (id == R.id.action_navigate) {
 
-            Intent i = new Intent(MapsActivity.this, LocationActivity.class);
+            Intent i = new Intent(ActivityMaps.this, LocationActivity.class);
             startActivity(i);
             return true;
         }

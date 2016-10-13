@@ -32,9 +32,9 @@
             android:layout_height="wrap_content"
             fab:fab_colorNormal="#27ae60"
             fab:fab_colorPressed="@color/ColorPrimary"
+            fab:fab_icon="@drawable/hospital"
             fab:fab_size="mini"
-            fab:fab_title="Hospital"
-            fab:fab_icon="@drawable/hospital" />
+            fab:fab_title="Hospital" />
 
         <com.spardha.ritesh.views.fab.FloatingActionButton
             android:id="@+id/button_venue"
@@ -42,8 +42,8 @@
             android:layout_height="wrap_content"
             fab:fab_colorNormal="#27ae60"
             fab:fab_colorPressed="@color/ColorPrimary"
-            fab:fab_size="mini"
             fab:fab_icon="@drawable/sprots_venues"
+            fab:fab_size="mini"
             fab:fab_title="Sports Venue" />
 
         <com.spardha.ritesh.views.fab.FloatingActionButton
@@ -58,11 +58,11 @@
 
         <com.spardha.ritesh.views.fab.FloatingActionButton
             android:id="@+id/button_hostel"
-            fab:fab_icon="@drawable/hostel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="#27ae60"
             fab:fab_colorPressed="@color/ColorPrimary"
+            fab:fab_icon="@drawable/hostel"
             fab:fab_size="mini"
             fab:fab_title="Hostel" />
 
@@ -72,8 +72,8 @@
             android:layout_height="wrap_content"
             fab:fab_colorNormal="#27ae60"
             fab:fab_colorPressed="@color/ColorPrimary"
-            fab:fab_size="mini"
             fab:fab_icon="@drawable/miscelanious_places"
+            fab:fab_size="mini"
             fab:fab_title="Miscellaneous" />
 
 

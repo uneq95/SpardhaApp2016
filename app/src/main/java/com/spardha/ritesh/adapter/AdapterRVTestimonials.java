@@ -26,10 +26,10 @@ import java.util.ArrayList;
  */
 public class AdapterRVTestimonials extends RecyclerView.Adapter<AdapterRVTestimonials.ViewHolder> {
 
+    private final String TAG = "AdapterRVTestimonials";
     private Context context;
     private ArrayList<Testimonial> testimonials;
     private RequestQueue requestQueue;
-    private final String TAG = "AdapterRVTestimonials";
 
     public AdapterRVTestimonials(Context context, ArrayList<Testimonial> testimonials) {
         this.context = context;

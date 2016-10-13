@@ -5,15 +5,15 @@
 
         <item
             android:id="@+id/item_register"
-            android:checked="false"
             android:checkable="false"
+            android:checked="false"
             android:icon="@drawable/ic_edit_black_24dp"
             android:title="@string/register" />
 
         <item
             android:id="@+id/item_campus_ambassador"
-            android:checked="false"
             android:checkable="false"
+            android:checked="false"
             android:icon="@drawable/ic_public_black_24dp"
             android:title="@string/campus_ambassador" />
 
@@ -26,28 +26,28 @@
 
         <item
             android:id="@+id/item_contacts"
-            android:checked="false"
             android:checkable="false"
+            android:checked="false"
             android:icon="@drawable/ic_contacts_black_24dp"
             android:title="@string/contacts" />
 
 
         <item
             android:id="@+id/item_settings"
-            android:checked="false"
             android:checkable="false"
+            android:checked="false"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="@string/settings" />
         <item
             android:id="@+id/item_feedback"
-            android:checked="false"
             android:checkable="false"
+            android:checked="false"
             android:icon="@drawable/ic_feedback_black_24dp"
             android:title="@string/feedback" />
         <item
             android:id="@+id/item_about_us"
-            android:checked="false"
             android:checkable="false"
+            android:checked="false"
             android:icon="@drawable/ic_info_black_24dp"
             android:title="@string/about_us" />
 

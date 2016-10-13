@@ -27,15 +27,12 @@ import com.spardha.ritesh.models.FCMUpdateMessage;
 
 public class DataSyncService extends Service {
 
-    private static boolean isCalled = false;
     private static final String TAG = "DataSyncService";
+    private static boolean isCalled = false;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        if (!isCalled) {
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        }
         Log.d(TAG, "service started");
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("updates");
         ValueEventListener testListener = new ValueEventListener() {
