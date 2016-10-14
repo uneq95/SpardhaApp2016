@@ -4,4 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Button
+        android:text="Admin Side"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btAdmin" />
+
+    <Button
+        android:text="Client Side"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btClient" />
 </LinearLayout>

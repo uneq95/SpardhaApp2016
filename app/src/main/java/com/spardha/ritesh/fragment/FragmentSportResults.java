@@ -55,7 +55,7 @@ public class FragmentSportResults extends Fragment {
         super.onCreate(savedInstanceState);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference dbRef = firebaseDatabase.getReference("results");
-        ValueEventListener fixturesChangeListener = new ValueEventListener() {
+        ValueEventListener resultsChangeListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 results = new ArrayList<>();
@@ -74,7 +74,7 @@ public class FragmentSportResults extends Fragment {
 
             }
         };
-        dbRef.addValueEventListener(fixturesChangeListener);
+        dbRef.addValueEventListener(resultsChangeListener);
     }
 
     private void updateFixturesList(ArrayList<Result> results) {

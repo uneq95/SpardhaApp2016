@@ -15,7 +15,7 @@ public class Fixture {
     public String team1;
     public String team2;
     public String sport;
-    public String sportDescription;
+    public String sport_desc;
     public String venue;
     public String time;
 
@@ -27,7 +27,7 @@ public class Fixture {
         this.team1 = team1;
         this.team2 = team2;
         this.sport = sport;
-        this.sportDescription = sportDescription;
+        this.sport_desc = sportDescription;
         this.venue = venue;
         this.time = time;
     }
@@ -38,7 +38,7 @@ public class Fixture {
         result.put("team1", team1);
         result.put("team2", team2);
         result.put("sport", sport);
-        result.put("sport_desc", sportDescription);
+        result.put("sport_desc", sport_desc);
         result.put("venue", venue);
         result.put("time", time);
 

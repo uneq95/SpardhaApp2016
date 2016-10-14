@@ -39,7 +39,7 @@ public class AdapterRVFixturesList extends RecyclerView.Adapter<AdapterRVFixture
         holder.tvTeam1.setText(fixture.team1);
         holder.tvTeam2.setText(fixture.team2);
         holder.tvVenue.setText(fixture.venue);
-        holder.tvMatchGenre.setText(fixture.sportDescription);
+        holder.tvMatchGenre.setText(fixture.sport_desc);
         holder.tvTime.setText(fixture.time);
     }
 
@@ -50,7 +50,7 @@ public class AdapterRVFixturesList extends RecyclerView.Adapter<AdapterRVFixture
 
     static final class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvMatchGenre, tvVenue, tvTime, tvTeam1, tvTeam2, tvScore, tvVerdict;
+        TextView tvMatchGenre, tvVenue, tvTime, tvTeam1, tvTeam2;
 
         ViewHolder(View itemView) {
             super(itemView);

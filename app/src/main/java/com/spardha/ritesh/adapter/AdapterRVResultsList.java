@@ -50,7 +50,7 @@ public class AdapterRVResultsList extends RecyclerView.Adapter<AdapterRVResultsL
 
     @Override
     public int getItemCount() {
-        return 0;
+        return results.size();
     }
 
     static final class ViewHolder extends RecyclerView.ViewHolder {
