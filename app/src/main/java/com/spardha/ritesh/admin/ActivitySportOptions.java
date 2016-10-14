@@ -22,20 +22,28 @@ public class ActivitySportOptions extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_sport_options);
-        ListView lv = (ListView)findViewById(R.id.lvSportOptions);
+        ListView lv = (ListView) findViewById(R.id.lvSportOptions);
         final String SPORT_NAME = getIntent().getStringExtra(Constants.INTENT_STRING_SPORT_NAME);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,Constants.SPORT_ADMIN_OPTIONS);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Constants.SPORT_ADMIN_OPTIONS);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
-                    Intent intent = new Intent(ActivitySportOptions.this, ActivityAddFixtures.class);
-                    intent.putExtra(Constants.INTENT_STRING_SPORT_NAME,SPORT_NAME);
-                    startActivity(intent);
-                }
+                Intent intent;
+                switch (position) {
+                    case 0:
+                        intent = new Intent(ActivitySportOptions.this, ActivityAddFixtures.class);
+                        intent.putExtra(Constants.INTENT_STRING_SPORT_NAME, SPORT_NAME);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(ActivitySportOptions.this, ActivityAddResults.class);
+                        intent.putExtra(Constants.INTENT_STRING_SPORT_NAME, SPORT_NAME);
+                        startActivity(intent);
+                        break;
 
+                }
             }
         });
 

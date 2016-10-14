@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:padding="8dp"
+        android:hint="sport full description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etSportsDesc" />
+
+    <EditText
+        android:padding="8dp"
+        android:hint="match date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTime" />
+
+    <EditText
+        android:padding="8dp"
+        android:hint="team1 name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTeam1" />
+
+    <EditText
+        android:padding="8dp"
+        android:hint="team2 name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTeam2" />
+    <EditText
+        android:padding="8dp"
+        android:hint="final score (TEAM1 -- TEAM2)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etScore" />
+
+    <EditText
+        android:padding="8dp"
+        android:hint="verdict"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etVerdict" />
+
+    <Button
+        android:padding="8dp"
+        android:text="Add result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btSubmitFixture" />
+</LinearLayout>

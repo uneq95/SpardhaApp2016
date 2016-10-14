@@ -92,6 +92,7 @@
         <activity android:name=".admin.ActivitySportSelect"/>
         <activity android:name=".admin.ActivitySportOptions"/>
         <activity android:name=".admin.ActivityAddFixtures"/>
+        <activity android:name=".admin.ActivityAddResults"/>
 
     </application>
 

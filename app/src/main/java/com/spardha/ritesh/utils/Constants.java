@@ -43,7 +43,6 @@ public class Constants {
 
     public static final String[] SPORT_ADMIN_OPTIONS={
             "Add fixtures",
-            "Add score"
-
+            "Add Results"
     };
  }
