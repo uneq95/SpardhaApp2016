@@ -89,6 +89,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".admin.ActivitySportSelect"/>
+        <activity android:name=".admin.ActivitySportOptions"/>
+        <activity android:name=".admin.ActivityAddFixtures"/>
+
     </application>
 
 </manifest>

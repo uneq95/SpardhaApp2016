@@ -33,5 +33,17 @@ public class Constants {
     public enum MATCH_STATUS {
         PENDING, ONGOING, OVER
     }
-    ;
-}
+
+    public static final String[] SPORT_SELECT_GRID_SELECTIONS={
+        "athletics",
+            "badminton","basketball","boxing","carrom","chess","cricket","football",
+            "handball","hockey","kabaddi","kho-kho","powerlifting","squash","taekwondo","tennis","table tennis",
+            "volleyball","weightlifting"
+    };
+
+    public static final String[] SPORT_ADMIN_OPTIONS={
+            "Add fixtures",
+            "Add score"
+
+    };
+ }
