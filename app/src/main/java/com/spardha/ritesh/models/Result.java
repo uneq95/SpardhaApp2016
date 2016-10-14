@@ -25,14 +25,14 @@ public class Result {
     }
 
 
-    public Result(String team1,String team2,String sport,String sportDescription,String date,String score,String verdict){
-        this.team1=team1;
-        this.team2=team2;
-        this.sport=sport;
-        this.sport_desc=sportDescription;
-        this.score=score;
-        this.date=date;
-        this.verdict=verdict;
+    public Result(String team1, String team2, String sport, String sportDescription, String date, String score, String verdict) {
+        this.team1 = team1;
+        this.team2 = team2;
+        this.sport = sport;
+        this.sport_desc = sportDescription;
+        this.score = score;
+        this.date = date;
+        this.verdict = verdict;
     }
 
     @Exclude
@@ -44,7 +44,7 @@ public class Result {
         result.put("sport_desc", sport_desc);
         result.put("date", date);
         result.put("score", score);
-        result.put("verdict",verdict);
+        result.put("verdict", verdict);
 
         return result;
     }

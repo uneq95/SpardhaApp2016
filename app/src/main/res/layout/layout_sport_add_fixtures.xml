@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <EditText
-        android:padding="8dp"
+        android:id="@+id/etSportsDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="sport full description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etSportsDesc" />
+        android:padding="8dp" />
 
     <EditText
-        android:padding="8dp"
+        android:id="@+id/etVenue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="Venue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etVenue" />
+        android:padding="8dp" />
 
     <EditText
-        android:padding="8dp"
+        android:id="@+id/etTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="time and date with commas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etTime" />
+        android:padding="8dp" />
 
     <EditText
-        android:padding="8dp"
+        android:id="@+id/etTeam1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="team1 name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etTeam1" />
+        android:padding="8dp" />
 
     <EditText
-        android:padding="8dp"
-        android:hint="team2 name"
+        android:id="@+id/etTeam2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etTeam2" />
+        android:hint="team2 name"
+        android:padding="8dp" />
 
     <Button
-        android:padding="8dp"
-        android:text="Add Fixture"
+        android:id="@+id/btSubmitFixture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btSubmitFixture" />
+        android:padding="8dp"
+        android:text="Add Fixture" />
 </LinearLayout>

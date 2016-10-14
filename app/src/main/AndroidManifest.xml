@@ -79,7 +79,7 @@
             </intent-filter>
         </service>
         <!-- [END firebase_iid_service] -->
-        <service android:name=".fcm.DataSyncService"/>
+        <service android:name=".fcm.DataSyncService" />
 
         <activity android:name=".activity.ActivitySplashScreen">
             <intent-filter>
@@ -89,10 +89,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".admin.ActivitySportSelect"/>
-        <activity android:name=".admin.ActivitySportOptions"/>
-        <activity android:name=".admin.ActivityAddFixtures"/>
-        <activity android:name=".admin.ActivityAddResults"/>
+        <activity android:name=".admin.ActivitySportSelect" />
+        <activity android:name=".admin.ActivitySportOptions" />
+        <activity android:name=".admin.ActivityAddFixtures" />
+        <activity android:name=".admin.ActivityAddResults" />
 
     </application>
 

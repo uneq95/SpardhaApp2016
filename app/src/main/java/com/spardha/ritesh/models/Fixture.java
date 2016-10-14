@@ -23,13 +23,13 @@ public class Fixture {
 
     }
 
-    public Fixture(String team1,String team2,String sport,String sportDescription,String venue,String time){
-        this.team1=team1;
-        this.team2=team2;
-        this.sport=sport;
-        this.sportDescription=sportDescription;
-        this.venue=venue;
-        this.time=time;
+    public Fixture(String team1, String team2, String sport, String sportDescription, String venue, String time) {
+        this.team1 = team1;
+        this.team2 = team2;
+        this.sport = sport;
+        this.sportDescription = sportDescription;
+        this.venue = venue;
+        this.time = time;
     }
 
     @Exclude

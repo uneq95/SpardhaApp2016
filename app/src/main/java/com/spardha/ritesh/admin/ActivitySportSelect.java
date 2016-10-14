@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.menu.ExpandedMenuView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,8 +28,8 @@ public class ActivitySportSelect extends AppCompatActivity {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ActivitySportSelect.this,ActivitySportOptions.class);
-                intent.putExtra(Constants.INTENT_STRING_SPORT_NAME,Constants.SPORT_SELECT_GRID_SELECTIONS[position]);
+                Intent intent = new Intent(ActivitySportSelect.this, ActivitySportOptions.class);
+                intent.putExtra(Constants.INTENT_STRING_SPORT_NAME, Constants.SPORT_SELECT_GRID_SELECTIONS[position]);
                 startActivity(intent);
             }
         });

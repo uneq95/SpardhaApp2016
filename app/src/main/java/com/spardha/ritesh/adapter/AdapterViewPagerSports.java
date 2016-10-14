@@ -22,13 +22,13 @@ import java.util.ArrayList;
  */
 public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
 
-    FragmentSportHallOfFame fragmentSportHallOfFame;
-    FragmentSportContacts fragmentSportContacts;
-    FragmentSportFixtures fragmentSportFixtures;
-    FragmentSportUpdates fragmentSportUpdates;
-    FragmentSportRules fragmentSportRules;
-    FragmentSportResults fragmentSportResults;
-    String SPORTS_NAME;
+    private FragmentSportHallOfFame fragmentSportHallOfFame;
+    private FragmentSportContacts fragmentSportContacts;
+    private FragmentSportFixtures fragmentSportFixtures;
+    private FragmentSportUpdates fragmentSportUpdates;
+    private FragmentSportRules fragmentSportRules;
+    private FragmentSportResults fragmentSportResults;
+    private String SPORTS_NAME;
 
     public AdapterViewPagerSports(FragmentManager fragmentManager, String sport_name) {
         super(fragmentManager);
@@ -50,9 +50,10 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
             case 0:
                 return fragmentSportUpdates;
             case 1:
+                fragmentSportFixtures.setArguments(bundle);
                 return fragmentSportFixtures;
             case 2:
-                fragmentSportFixtures.setArguments(bundle);
+                fragmentSportResults.setArguments(bundle);
                 return fragmentSportResults;
             case 3:
                 fragmentSportRules.setArguments(bundle);
