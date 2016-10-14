@@ -39,7 +39,7 @@ public class AdapterRVFixturesList extends RecyclerView.Adapter<AdapterRVFixture
         holder.tvTeam1.setText(fixture.team1);
         holder.tvTeam2.setText(fixture.team2);
         holder.tvVenue.setText(fixture.venue);
-        holder.tvMatchGenre.setText(fixture.sport);
+        holder.tvMatchGenre.setText(fixture.sportDescription);
         holder.tvTime.setText(fixture.time);
     }
 

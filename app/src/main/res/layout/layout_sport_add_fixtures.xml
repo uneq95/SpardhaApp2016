@@ -3,4 +3,45 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:padding="8dp"
+        android:hint="sport full description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etSportsDesc" />
+
+    <EditText
+        android:padding="8dp"
+        android:hint="Venue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etVenue" />
+
+    <EditText
+        android:padding="8dp"
+        android:hint="time and date with commas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTime" />
+
+    <EditText
+        android:padding="8dp"
+        android:hint="team1 name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTeam1" />
+
+    <EditText
+        android:padding="8dp"
+        android:hint="team2 name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTeam2" />
+
+    <Button
+        android:padding="8dp"
+        android:text="Add Fixture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btSubmitFixture" />
 </LinearLayout>

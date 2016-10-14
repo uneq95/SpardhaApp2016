@@ -30,9 +30,12 @@ public class ActivitySportOptions extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ActivitySportOptions.this, ActivityAddFixtures.class);
-                intent.putExtra(Constants.INTENT_STRING_SPORT_NAME,SPORT_NAME);
-                startActivity(intent);
+                if(position==0){
+                    Intent intent = new Intent(ActivitySportOptions.this, ActivityAddFixtures.class);
+                    intent.putExtra(Constants.INTENT_STRING_SPORT_NAME,SPORT_NAME);
+                    startActivity(intent);
+                }
+
             }
         });
 
