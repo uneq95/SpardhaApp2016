@@ -7,29 +7,32 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by ritesh on 10/12/16.
+ * Created by ritesh on 10/15/16.
  */
 @IgnoreExtraProperties
-public class Fixture {
+public class Result {
 
     public String team1;
     public String team2;
     public String sport;
     public String sport_desc;
-    public String venue;
-    public String time;
+    public String date;
+    public String score;
+    public String verdict;
 
-    public Fixture() {
+    public Result() {
 
     }
 
-    public Fixture(String team1, String team2, String sport, String sportDescription, String venue, String time) {
+
+    public Result(String team1, String team2, String sport, String sportDescription, String date, String score, String verdict) {
         this.team1 = team1;
         this.team2 = team2;
         this.sport = sport;
         this.sport_desc = sportDescription;
-        this.venue = venue;
-        this.time = time;
+        this.score = score;
+        this.date = date;
+        this.verdict = verdict;
     }
 
     @Exclude
@@ -39,10 +42,10 @@ public class Fixture {
         result.put("team2", team2);
         result.put("sport", sport);
         result.put("sport_desc", sport_desc);
-        result.put("venue", venue);
-        result.put("time", time);
+        result.put("date", date);
+        result.put("score", score);
+        result.put("verdict", verdict);
 
         return result;
     }
-
 }
