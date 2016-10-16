@@ -25,7 +25,7 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
     private FragmentSportHallOfFame fragmentSportHallOfFame;
     private FragmentSportContacts fragmentSportContacts;
     private FragmentSportFixtures fragmentSportFixtures;
-    private FragmentSportUpdates fragmentSportUpdates;
+    //private FragmentSportUpdates fragmentSportUpdates;
     private FragmentSportRules fragmentSportRules;
     private FragmentSportResults fragmentSportResults;
     private String SPORTS_NAME;
@@ -35,7 +35,7 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
         fragmentSportHallOfFame = new FragmentSportHallOfFame();
         fragmentSportContacts = new FragmentSportContacts();
         fragmentSportFixtures = new FragmentSportFixtures();
-        fragmentSportUpdates = new FragmentSportUpdates();
+        //fragmentSportUpdates = new FragmentSportUpdates();
         fragmentSportResults = new FragmentSportResults();
         fragmentSportRules = new FragmentSportRules();
         this.SPORTS_NAME = sport_name;
@@ -48,20 +48,18 @@ public class AdapterViewPagerSports extends FragmentStatePagerAdapter {
         bundle.putString(Constants.INTENT_STRING_SPORT_NAME, SPORTS_NAME);
         switch (position) {
             case 0:
-                return fragmentSportUpdates;
-            case 1:
                 fragmentSportFixtures.setArguments(bundle);
                 return fragmentSportFixtures;
-            case 2:
+            case 1:
                 fragmentSportResults.setArguments(bundle);
                 return fragmentSportResults;
-            case 3:
+            case 2:
                 fragmentSportRules.setArguments(bundle);
                 return fragmentSportRules;
-            case 4:
+            case 3:
                 fragmentSportContacts.setArguments(bundle);
                 return fragmentSportContacts;
-            case 5:
+            case 4:
                 return fragmentSportHallOfFame;
         }
         return null;

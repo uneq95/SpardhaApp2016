@@ -29,9 +29,9 @@ public class AdapterViewPagerHome extends FragmentStatePagerAdapter {
             case 2:
                 Log.d("Viepager home :: ", "launching informals frgmnet");
                 return new FragmentEventInformals();
-            case 4:
+            case 3:
                 return new FragmentVideoWall();
-            case 5:
+            case 4:
                 return new FragmentTestimonials();
             default:
                 return new FragmentTestimonials();
