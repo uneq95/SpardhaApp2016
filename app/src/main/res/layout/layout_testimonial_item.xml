@@ -4,10 +4,9 @@
     android:id="@+id/card_view_hof1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    card_view:cardBackgroundColor="#DAA520">
+    card_view:cardBackgroundColor="@color/accent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -54,7 +53,7 @@
                     android:layout_marginRight="5dp"
                     android:text="Small Text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#1B5E20"
+                    android:textColor="@color/primary_dark"
                     android:textStyle="bold" />
 
                 <TextView

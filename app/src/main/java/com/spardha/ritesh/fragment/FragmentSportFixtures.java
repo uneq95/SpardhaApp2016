@@ -46,7 +46,7 @@ public class FragmentSportFixtures extends Fragment {
         SPORTS_NAME = bundle.getString(Constants.INTENT_STRING_SPORT_NAME);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.grid_spacing);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.recycler_view_item_spacing);
         recyclerView.addItemDecoration(itemDecoration);
         return superView;
     }

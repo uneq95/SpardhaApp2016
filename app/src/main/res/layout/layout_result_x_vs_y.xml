@@ -79,7 +79,6 @@
             android:gravity="center_horizontal"
             android:text="3 - 4"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
 
         <TextView
@@ -89,7 +88,7 @@
             android:gravity="center_horizontal"
             android:text="IIT Delhi won against IITBHU"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/primary"
             android:textStyle="bold" />
 
     </LinearLayout>

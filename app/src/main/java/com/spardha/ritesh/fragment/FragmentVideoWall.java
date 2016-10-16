@@ -1,7 +1,6 @@
 package com.spardha.ritesh.fragment;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,6 +23,7 @@ import com.spardha.ritesh.utils.AppSingleton;
 import com.spardha.ritesh.utils.Constants;
 import com.spardha.ritesh.utils.ItemOffsetDecoration;
 import com.spardha.ritesh.utils.JSONParser;
+import com.spardha.ritesh.utils.Utilities;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,10 +36,10 @@ import java.util.ArrayList;
 public class FragmentVideoWall extends Fragment {
 
     View superView;
-    SwipeRefreshLayout swipeRefreshLayout;
-    RecyclerView videoRecyclerView;
-    ArrayList<YouTubeVideo> youTubeVideos;
-    Context fragmentContext;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private RecyclerView videoRecyclerView;
+    private ArrayList<YouTubeVideo> youTubeVideos;
+    private Context fragmentContext;
 
     @Nullable
     @Override
@@ -48,6 +48,8 @@ public class FragmentVideoWall extends Fragment {
         swipeRefreshLayout = (SwipeRefreshLayout) superView.findViewById(R.id.swipe_refresh_layout);
 //        int[] colors = {R.color.blue, R.color.green, R.color.orange};
 //        swipeRefreshLayout.setColorSchemeColors(colors);
+        int[] colors = {R.color.primary};
+        swipeRefreshLayout.setColorSchemeColors(colors);
         fragmentContext = getContext();
         videoRecyclerView = (RecyclerView) superView.findViewById(R.id.recycler_view);
         //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -56,8 +58,7 @@ public class FragmentVideoWall extends Fragment {
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(fragmentContext, R.dimen.recycler_view_item_spacing);
         videoRecyclerView.addItemDecoration(itemDecoration);
 
-        //todo make a universal internet availablity checking function
-        if (isInternetAvailable()) {
+        if (Utilities.isInternetAvailable(fragmentContext)) {
             //todo load list using volley then display in recycler view
             loadVideoList();
         } else {
@@ -75,12 +76,6 @@ public class FragmentVideoWall extends Fragment {
         });
 
         return superView;
-
-    }
-
-    boolean isInternetAvailable() {
-        ConnectivityManager cm = (ConnectivityManager) fragmentContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-        return (cm.getActiveNetworkInfo() != null);
 
     }
 

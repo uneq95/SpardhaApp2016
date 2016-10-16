@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class ImageSaver {
 
-    String TAG = "ImageSaver";
+    private String TAG = "ImageSaver";
     private String directoryName = "images";
     private String fileName = "image.png";
     private Context context;

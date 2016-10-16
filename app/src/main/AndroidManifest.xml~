@@ -48,7 +48,7 @@
         <activity
             android:name=".activity.ActivityMaps"
             android:label="@string/title_activity_maps"
-            android:theme="@style/AppTheme.NoActionBar.MenuActivityTheme">
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.spardha.ritesh.activity.ActivityHome" />
@@ -63,7 +63,7 @@
         <activity
             android:name=".activity.ActivityContacts"
             android:label="Contacts"
-            android:theme="@style/AppTheme.NoActionBar.MenuActivityTheme" >
+            android:theme="@style/AppTheme.NoActionBar" >
 	    <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.spardha.ritesh.activity.ActivityHome" />

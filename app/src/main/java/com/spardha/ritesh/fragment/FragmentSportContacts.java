@@ -41,7 +41,7 @@ public class FragmentSportContacts extends Fragment {
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
-        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.grid_spacing);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.recycler_view_item_spacing);
         recyclerView.addItemDecoration(itemDecoration);
         Bundle bundle = this.getArguments();
 
